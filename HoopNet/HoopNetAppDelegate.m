@@ -7,17 +7,23 @@
 //
 
 #import "HoopNetAppDelegate.h"
+#import "HoopNetViewController.h"
 
 @implementation HoopNetAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //HoopNetViewController *hoopNetVC = [alloc [HoopNetViewController init]];
+    //[self.window setRootViewController: hoopNetVC];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    //[self.window makeKeyAndVisible];
     return YES;
+    
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HoopNetViewController.h"
 
 @interface HoopNetAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @end

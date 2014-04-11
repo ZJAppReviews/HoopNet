@@ -19,6 +19,16 @@
 		D35CEDB118F7D26F00A03E4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9918F7D26F00A03E4C /* UIKit.framework */; };
 		D35CEDB918F7D26F00A03E4C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDB718F7D26F00A03E4C /* InfoPlist.strings */; };
 		D35CEDBB18F7D26F00A03E4C /* HoopNetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDBA18F7D26F00A03E4C /* HoopNetTests.m */; };
+		D35CEDC918F7D2B300A03E4C /* HoopNetStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDC818F7D2B300A03E4C /* HoopNetStoryboard.storyboard */; };
+		D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */; };
+		D35CEDCE18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDCD18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard */; };
+		D35CEDD018F7D3C400A03E4C /* SearchEventsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDCF18F7D3C400A03E4C /* SearchEventsStoryboard.storyboard */; };
+		D35CEDD218F7D3D200A03E4C /* TheUsualsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDD118F7D3D200A03E4C /* TheUsualsStoryboard.storyboard */; };
+		D35CEDD418F7D3DD00A03E4C /* MyEventsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDD318F7D3DD00A03E4C /* MyEventsStoryboard.storyboard */; };
+		D35CEDD718F7D3F100A03E4C /* CreateEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDD618F7D3F100A03E4C /* CreateEventsViewController.m */; };
+		D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */; };
+		D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */; };
+		D35CEDE018F7D41900A03E4C /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +58,21 @@
 		D35CEDB618F7D26F00A03E4C /* HoopNetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HoopNetTests-Info.plist"; sourceTree = "<group>"; };
 		D35CEDB818F7D26F00A03E4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D35CEDBA18F7D26F00A03E4C /* HoopNetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoopNetTests.m; sourceTree = "<group>"; };
+		D35CEDC818F7D2B300A03E4C /* HoopNetStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HoopNetStoryboard.storyboard; sourceTree = "<group>"; };
+		D35CEDCA18F7D2E000A03E4C /* HoopNetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoopNetViewController.h; sourceTree = "<group>"; };
+		D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoopNetViewController.m; sourceTree = "<group>"; };
+		D35CEDCD18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateEventsStoryboard.storyboard; sourceTree = "<group>"; };
+		D35CEDCF18F7D3C400A03E4C /* SearchEventsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchEventsStoryboard.storyboard; sourceTree = "<group>"; };
+		D35CEDD118F7D3D200A03E4C /* TheUsualsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TheUsualsStoryboard.storyboard; sourceTree = "<group>"; };
+		D35CEDD318F7D3DD00A03E4C /* MyEventsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyEventsStoryboard.storyboard; sourceTree = "<group>"; };
+		D35CEDD518F7D3F100A03E4C /* CreateEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEventsViewController.h; sourceTree = "<group>"; };
+		D35CEDD618F7D3F100A03E4C /* CreateEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEventsViewController.m; sourceTree = "<group>"; };
+		D35CEDD818F7D3FE00A03E4C /* SearchEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventsViewController.h; sourceTree = "<group>"; };
+		D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsViewController.m; sourceTree = "<group>"; };
+		D35CEDDB18F7D40B00A03E4C /* TheUsualsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUsualsViewController.h; sourceTree = "<group>"; };
+		D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsViewController.m; sourceTree = "<group>"; };
+		D35CEDDE18F7D41900A03E4C /* MyEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsViewController.h; sourceTree = "<group>"; };
+		D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +132,13 @@
 		D35CED9B18F7D26F00A03E4C /* HoopNet */ = {
 			isa = PBXGroup;
 			children = (
+				D35CEDC718F7D28F00A03E4C /* CreateEvents */,
+				D35CEDC618F7D28700A03E4C /* SearchEvents */,
+				D35CEDC518F7D27C00A03E4C /* TheUsuals */,
+				D35CEDC418F7D27600A03E4C /* MyEvents */,
+				D35CEDC818F7D2B300A03E4C /* HoopNetStoryboard.storyboard */,
+				D35CEDCA18F7D2E000A03E4C /* HoopNetViewController.h */,
+				D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */,
 				D35CEDA418F7D26F00A03E4C /* HoopNetAppDelegate.h */,
 				D35CEDA518F7D26F00A03E4C /* HoopNetAppDelegate.m */,
 				D35CEDA718F7D26F00A03E4C /* Images.xcassets */,
@@ -142,6 +174,46 @@
 				D35CEDB718F7D26F00A03E4C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D35CEDC418F7D27600A03E4C /* MyEvents */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDD318F7D3DD00A03E4C /* MyEventsStoryboard.storyboard */,
+				D35CEDDE18F7D41900A03E4C /* MyEventsViewController.h */,
+				D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */,
+			);
+			name = MyEvents;
+			sourceTree = "<group>";
+		};
+		D35CEDC518F7D27C00A03E4C /* TheUsuals */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDD118F7D3D200A03E4C /* TheUsualsStoryboard.storyboard */,
+				D35CEDDB18F7D40B00A03E4C /* TheUsualsViewController.h */,
+				D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */,
+			);
+			name = TheUsuals;
+			sourceTree = "<group>";
+		};
+		D35CEDC618F7D28700A03E4C /* SearchEvents */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDCF18F7D3C400A03E4C /* SearchEventsStoryboard.storyboard */,
+				D35CEDD818F7D3FE00A03E4C /* SearchEventsViewController.h */,
+				D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */,
+			);
+			name = SearchEvents;
+			sourceTree = "<group>";
+		};
+		D35CEDC718F7D28F00A03E4C /* CreateEvents */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDCD18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard */,
+				D35CEDD518F7D3F100A03E4C /* CreateEventsViewController.h */,
+				D35CEDD618F7D3F100A03E4C /* CreateEventsViewController.m */,
+			);
+			name = CreateEvents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +292,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D35CEDC918F7D2B300A03E4C /* HoopNetStoryboard.storyboard in Resources */,
+				D35CEDD418F7D3DD00A03E4C /* MyEventsStoryboard.storyboard in Resources */,
 				D35CEDA018F7D26F00A03E4C /* InfoPlist.strings in Resources */,
+				D35CEDCE18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard in Resources */,
 				D35CEDA818F7D26F00A03E4C /* Images.xcassets in Resources */,
+				D35CEDD218F7D3D200A03E4C /* TheUsualsStoryboard.storyboard in Resources */,
+				D35CEDD018F7D3C400A03E4C /* SearchEventsStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +317,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */,
 				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
+				D35CEDE018F7D41900A03E4C /* MyEventsViewController.m in Sources */,
 				D35CEDA218F7D26F00A03E4C /* main.m in Sources */,
+				D35CEDD718F7D3F100A03E4C /* CreateEventsViewController.m in Sources */,
+				D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */,
+				D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +444,7 @@
 				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
 				INFOPLIST_FILE = "HoopNet/HoopNet-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -375,6 +458,7 @@
 				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
 				INFOPLIST_FILE = "HoopNet/HoopNet-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -438,6 +522,7 @@
 				D35CEDC018F7D26F00A03E4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D35CEDC118F7D26F00A03E4C /* Build configuration list for PBXNativeTarget "HoopNetTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +531,7 @@
 				D35CEDC318F7D26F00A03E4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
