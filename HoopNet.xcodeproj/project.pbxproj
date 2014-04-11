@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D35CED9618F7D26F00A03E4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9518F7D26F00A03E4C /* Foundation.framework */; };
+		D35CED9818F7D26F00A03E4C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */; };
+		D35CED9A18F7D26F00A03E4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9918F7D26F00A03E4C /* UIKit.framework */; };
+		D35CEDA018F7D26F00A03E4C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35CED9E18F7D26F00A03E4C /* InfoPlist.strings */; };
+		D35CEDA218F7D26F00A03E4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDA118F7D26F00A03E4C /* main.m */; };
+		D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDA518F7D26F00A03E4C /* HoopNetAppDelegate.m */; };
+		D35CEDA818F7D26F00A03E4C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDA718F7D26F00A03E4C /* Images.xcassets */; };
+		D35CEDAF18F7D26F00A03E4C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CEDAE18F7D26F00A03E4C /* XCTest.framework */; };
+		D35CEDB018F7D26F00A03E4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9518F7D26F00A03E4C /* Foundation.framework */; };
+		D35CEDB118F7D26F00A03E4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9918F7D26F00A03E4C /* UIKit.framework */; };
+		D35CEDB918F7D26F00A03E4C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDB718F7D26F00A03E4C /* InfoPlist.strings */; };
+		D35CEDBB18F7D26F00A03E4C /* HoopNetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDBA18F7D26F00A03E4C /* HoopNetTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D35CEDB218F7D26F00A03E4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D35CED8A18F7D26F00A03E4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D35CED9118F7D26F00A03E4C;
+			remoteInfo = HoopNet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D35CED9218F7D26F00A03E4C /* HoopNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoopNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D35CED9518F7D26F00A03E4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D35CED9918F7D26F00A03E4C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D35CED9D18F7D26F00A03E4C /* HoopNet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HoopNet-Info.plist"; sourceTree = "<group>"; };
+		D35CED9F18F7D26F00A03E4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D35CEDA118F7D26F00A03E4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D35CEDA318F7D26F00A03E4C /* HoopNet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HoopNet-Prefix.pch"; sourceTree = "<group>"; };
+		D35CEDA418F7D26F00A03E4C /* HoopNetAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoopNetAppDelegate.h; sourceTree = "<group>"; };
+		D35CEDA518F7D26F00A03E4C /* HoopNetAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoopNetAppDelegate.m; sourceTree = "<group>"; };
+		D35CEDA718F7D26F00A03E4C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D35CEDAD18F7D26F00A03E4C /* HoopNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoopNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D35CEDAE18F7D26F00A03E4C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D35CEDB618F7D26F00A03E4C /* HoopNetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HoopNetTests-Info.plist"; sourceTree = "<group>"; };
+		D35CEDB818F7D26F00A03E4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D35CEDBA18F7D26F00A03E4C /* HoopNetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoopNetTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D35CED8F18F7D26F00A03E4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35CED9818F7D26F00A03E4C /* CoreGraphics.framework in Frameworks */,
+				D35CED9A18F7D26F00A03E4C /* UIKit.framework in Frameworks */,
+				D35CED9618F7D26F00A03E4C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35CEDAA18F7D26F00A03E4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35CEDAF18F7D26F00A03E4C /* XCTest.framework in Frameworks */,
+				D35CEDB118F7D26F00A03E4C /* UIKit.framework in Frameworks */,
+				D35CEDB018F7D26F00A03E4C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D35CED8918F7D26F00A03E4C = {
+			isa = PBXGroup;
+			children = (
+				D35CED9B18F7D26F00A03E4C /* HoopNet */,
+				D35CEDB418F7D26F00A03E4C /* HoopNetTests */,
+				D35CED9418F7D26F00A03E4C /* Frameworks */,
+				D35CED9318F7D26F00A03E4C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D35CED9318F7D26F00A03E4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D35CED9218F7D26F00A03E4C /* HoopNet.app */,
+				D35CEDAD18F7D26F00A03E4C /* HoopNetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D35CED9418F7D26F00A03E4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35CED9518F7D26F00A03E4C /* Foundation.framework */,
+				D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */,
+				D35CED9918F7D26F00A03E4C /* UIKit.framework */,
+				D35CEDAE18F7D26F00A03E4C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35CED9B18F7D26F00A03E4C /* HoopNet */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDA418F7D26F00A03E4C /* HoopNetAppDelegate.h */,
+				D35CEDA518F7D26F00A03E4C /* HoopNetAppDelegate.m */,
+				D35CEDA718F7D26F00A03E4C /* Images.xcassets */,
+				D35CED9C18F7D26F00A03E4C /* Supporting Files */,
+			);
+			path = HoopNet;
+			sourceTree = "<group>";
+		};
+		D35CED9C18F7D26F00A03E4C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D35CED9D18F7D26F00A03E4C /* HoopNet-Info.plist */,
+				D35CED9E18F7D26F00A03E4C /* InfoPlist.strings */,
+				D35CEDA118F7D26F00A03E4C /* main.m */,
+				D35CEDA318F7D26F00A03E4C /* HoopNet-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D35CEDB418F7D26F00A03E4C /* HoopNetTests */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDBA18F7D26F00A03E4C /* HoopNetTests.m */,
+				D35CEDB518F7D26F00A03E4C /* Supporting Files */,
+			);
+			path = HoopNetTests;
+			sourceTree = "<group>";
+		};
+		D35CEDB518F7D26F00A03E4C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDB618F7D26F00A03E4C /* HoopNetTests-Info.plist */,
+				D35CEDB718F7D26F00A03E4C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D35CED9118F7D26F00A03E4C /* HoopNet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D35CEDBE18F7D26F00A03E4C /* Build configuration list for PBXNativeTarget "HoopNet" */;
+			buildPhases = (
+				D35CED8E18F7D26F00A03E4C /* Sources */,
+				D35CED8F18F7D26F00A03E4C /* Frameworks */,
+				D35CED9018F7D26F00A03E4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HoopNet;
+			productName = HoopNet;
+			productReference = D35CED9218F7D26F00A03E4C /* HoopNet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D35CEDAC18F7D26F00A03E4C /* HoopNetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D35CEDC118F7D26F00A03E4C /* Build configuration list for PBXNativeTarget "HoopNetTests" */;
+			buildPhases = (
+				D35CEDA918F7D26F00A03E4C /* Sources */,
+				D35CEDAA18F7D26F00A03E4C /* Frameworks */,
+				D35CEDAB18F7D26F00A03E4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D35CEDB318F7D26F00A03E4C /* PBXTargetDependency */,
+			);
+			name = HoopNetTests;
+			productName = HoopNetTests;
+			productReference = D35CEDAD18F7D26F00A03E4C /* HoopNetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D35CED8A18F7D26F00A03E4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HoopNet;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "David Laroue";
+				TargetAttributes = {
+					D35CEDAC18F7D26F00A03E4C = {
+						TestTargetID = D35CED9118F7D26F00A03E4C;
+					};
+				};
+			};
+			buildConfigurationList = D35CED8D18F7D26F00A03E4C /* Build configuration list for PBXProject "HoopNet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D35CED8918F7D26F00A03E4C;
+			productRefGroup = D35CED9318F7D26F00A03E4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D35CED9118F7D26F00A03E4C /* HoopNet */,
+				D35CEDAC18F7D26F00A03E4C /* HoopNetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D35CED9018F7D26F00A03E4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35CEDA018F7D26F00A03E4C /* InfoPlist.strings in Resources */,
+				D35CEDA818F7D26F00A03E4C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35CEDAB18F7D26F00A03E4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35CEDB918F7D26F00A03E4C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D35CED8E18F7D26F00A03E4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
+				D35CEDA218F7D26F00A03E4C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D35CEDA918F7D26F00A03E4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D35CEDBB18F7D26F00A03E4C /* HoopNetTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D35CEDB318F7D26F00A03E4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D35CED9118F7D26F00A03E4C /* HoopNet */;
+			targetProxy = D35CEDB218F7D26F00A03E4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D35CED9E18F7D26F00A03E4C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35CED9F18F7D26F00A03E4C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D35CEDB718F7D26F00A03E4C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D35CEDB818F7D26F00A03E4C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D35CEDBC18F7D26F00A03E4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D35CEDBD18F7D26F00A03E4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D35CEDBF18F7D26F00A03E4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
+				INFOPLIST_FILE = "HoopNet/HoopNet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D35CEDC018F7D26F00A03E4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
+				INFOPLIST_FILE = "HoopNet/HoopNet-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D35CEDC218F7D26F00A03E4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HoopNet.app/HoopNet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HoopNetTests/HoopNetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D35CEDC318F7D26F00A03E4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HoopNet.app/HoopNet";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
+				INFOPLIST_FILE = "HoopNetTests/HoopNetTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D35CED8D18F7D26F00A03E4C /* Build configuration list for PBXProject "HoopNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D35CEDBC18F7D26F00A03E4C /* Debug */,
+				D35CEDBD18F7D26F00A03E4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D35CEDBE18F7D26F00A03E4C /* Build configuration list for PBXNativeTarget "HoopNet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D35CEDBF18F7D26F00A03E4C /* Debug */,
+				D35CEDC018F7D26F00A03E4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D35CEDC118F7D26F00A03E4C /* Build configuration list for PBXNativeTarget "HoopNetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D35CEDC218F7D26F00A03E4C /* Debug */,
+				D35CEDC318F7D26F00A03E4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D35CED8A18F7D26F00A03E4C /* Project object */;
+}
