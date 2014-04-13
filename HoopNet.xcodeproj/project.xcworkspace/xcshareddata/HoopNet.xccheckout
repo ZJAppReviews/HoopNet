@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>793DA71A-3E8D-470C-916B-CF1E8FBB83D3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HoopNet</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BC2D0477-3E9B-40DD-9706-65E80C3FE456</key>
+		<string>https://github.com/dlaroue/HoopNet.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HoopNet.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BC2D0477-3E9B-40DD-9706-65E80C3FE456</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dlaroue/HoopNet.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BC2D0477-3E9B-40DD-9706-65E80C3FE456</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BC2D0477-3E9B-40DD-9706-65E80C3FE456</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HoopNet</string>
+		</dict>
+	</array>
+</dict>
+</plist>

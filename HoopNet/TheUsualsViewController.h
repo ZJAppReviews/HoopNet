@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TheUsualsViewController : UIViewController
+@interface TheUsualsViewController : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
 @end
