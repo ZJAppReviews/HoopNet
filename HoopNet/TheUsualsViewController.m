@@ -7,6 +7,7 @@
 //
 
 #import "TheUsualsViewController.h"
+#import "EditTheUsualsViewController.h"
 
 @interface TheUsualsViewController ()
 {
@@ -16,10 +17,11 @@
     BOOL isFiltered;
 }
 
+
+
 @end
 
 @implementation TheUsualsViewController
-
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,6 +42,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    
     allStrings = [[NSMutableArray alloc] initWithObjects:@"David", @"Daniel", @"Julian", @"Vincent", @"Zack", @"Zackarious", @"Ethan", nil];
     allSections = [[NSMutableDictionary alloc] initWithCapacity:26];
     for(int i = 0; i < 26; i++) {
@@ -55,6 +58,16 @@
     }
 }
 
+
+- (void) searchBarTextDidBeginEditing: (UISearchBar*) searchBar {
+    [searchBar setShowsCancelButton: YES animated: YES];
+}
+
+-(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton: NO animated: NO];
+    [searchBar resignFirstResponder];
+    
+}
 
 
 /* Done */
@@ -150,7 +163,29 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   //STOPPED HERE
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //EditTheUsualsViewController *editVC = [[EditTheUsualsViewController alloc] init];
+    //[self.navigationController pushViewController:editVC animated:YES];
+    [self performSegueWithIdentifier:@"editTheUsualsSegue" sender:self];
+    
+}
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    EditTheUsualsViewController *editVC = segue.destinationViewController;
+    NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt: self.tableView.indexPathForSelectedRow.section]];
+    int arrayIndex = self.tableView.indexPathForSelectedRow.row;
+    NSString *cellInfo = [currentSection objectAtIndex:arrayIndex];
+    editVC.labelText = cellInfo;
+}
+
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning
 {

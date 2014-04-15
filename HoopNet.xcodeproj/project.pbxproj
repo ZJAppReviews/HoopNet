@@ -29,6 +29,7 @@
 		D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */; };
 		D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */; };
 		D35CEDE018F7D41900A03E4C /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */; };
+		D3E8679A18FA988F00B6F843 /* EditTheUsualsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsViewController.m; sourceTree = "<group>"; };
 		D35CEDDE18F7D41900A03E4C /* MyEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsViewController.h; sourceTree = "<group>"; };
 		D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsViewController.m; sourceTree = "<group>"; };
+		D3E8679818FA988F00B6F843 /* EditTheUsualsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTheUsualsViewController.h; sourceTree = "<group>"; };
+		D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTheUsualsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 				D35CEDD118F7D3D200A03E4C /* TheUsualsStoryboard.storyboard */,
 				D35CEDDB18F7D40B00A03E4C /* TheUsualsViewController.h */,
 				D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */,
+				D3E8679818FA988F00B6F843 /* EditTheUsualsViewController.h */,
+				D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */,
 			);
 			name = TheUsuals;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */,
 				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
 				D35CEDE018F7D41900A03E4C /* MyEventsViewController.m in Sources */,
+				D3E8679A18FA988F00B6F843 /* EditTheUsualsViewController.m in Sources */,
 				D35CEDA218F7D26F00A03E4C /* main.m in Sources */,
 				D35CEDD718F7D3F100A03E4C /* CreateEventsViewController.m in Sources */,
 				D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */,
