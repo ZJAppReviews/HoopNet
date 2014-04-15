@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="-758" y="-280"/>
         </scene>
-        <!--Edit The Usuals View Controller - Edit-->
+        <!--Edit The Usuals View Controller - Info-->
         <scene sceneID="JuP-v6-L8L">
             <objects>
                 <viewController id="weh-Km-OMX" customClass="EditTheUsualsViewController" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit" id="879-2q-mOk"/>
+                    <navigationItem key="navigationItem" title="Info" id="879-2q-mOk"/>
                     <connections>
                         <outlet property="editLabel" destination="h7Z-Ud-oJa" id="iZt-vc-pn4"/>
                     </connections>

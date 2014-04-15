@@ -64,6 +64,9 @@
 }
 
 -(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    isFiltered = NO;
+    [self.tableView reloadData];
+    searchBar.text = @"";
     [searchBar setShowsCancelButton: NO animated: NO];
     [searchBar resignFirstResponder];
     
@@ -72,8 +75,9 @@
 
 /* Done */
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    
+    [searchBar setShowsCancelButton: NO animated: NO];
     [self.searchBar resignFirstResponder];
+    
 }
 
 
