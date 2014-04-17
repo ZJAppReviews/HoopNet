@@ -25,8 +25,13 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
-    self.editLabel.text = self.labelText;
+    self.nameLabel.text = self.nameLabelText;
+    self.displayNameLabel.text = self.displayNameLabelText;
+    self.phoneLabel.text = self.phoneLabelText;
+    self.addressLabel.text = self.addressLabelText;
+    
     // Do any additional setup after loading the view.
 }
 

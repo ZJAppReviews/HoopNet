@@ -12,16 +12,21 @@
 @interface TheUsualsViewController ()
 {
     NSMutableDictionary *allSections;
-    NSMutableArray *allStrings;
+    NSMutableArray *nameArrays;
+    NSMutableDictionary *contactInfo;
     NSMutableDictionary *allFilteredSections;
     BOOL isFiltered;
+    
+    
+    // MAYBE DELETE THIS
+    NSMutableArray *info;
 }
-
 
 
 @end
 
 @implementation TheUsualsViewController
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,26 +48,47 @@
     self.tableView.dataSource = self;
     
     
-    allStrings = [[NSMutableArray alloc] initWithObjects:@"David", @"Daniel", @"Julian", @"Vincent", @"Zack", @"Zackarious", @"Ethan", nil];
+    
+    
+    nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Poonany", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], [[NSArray alloc] initWithObjects:@"Daniel Something", @"Weirdo", nil], nil];
+
+    contactInfo = [[NSMutableDictionary alloc] initWithCapacity:[nameArrays count]];
+    
+    info  = [[NSMutableArray alloc] initWithObjects:@"(323)-485-0292", @"931 S Ford Blvd",  nil];
+    
+    for(NSMutableArray *nameArray in nameArrays) {
+        NSString *displayName = [nameArray objectAtIndex:1];
+        NSLog(@"ADDING TO CONTACT INFO");
+        
+        [contactInfo setObject:info forKey:displayName];
+    }
+    
+    
+    
+    
+    
+    
+    
     allSections = [[NSMutableDictionary alloc] initWithCapacity:26];
     for(int i = 0; i < 26; i++) {
         [allSections setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
     }
-    for(NSString *str in allStrings) {
-        
+    for(NSMutableArray *nameArray in nameArrays) {
+        NSString *str = [nameArray objectAtIndex:0];
         int asciiOffset = 65;
         int asciiValue = [str characterAtIndex:0];
         int sectionIndex = asciiValue - asciiOffset;
         NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
-        [currentSection addObject:str];
+        [currentSection addObject:nameArray];
     }
 }
 
-
+/*DONE*/
 - (void) searchBarTextDidBeginEditing: (UISearchBar*) searchBar {
     [searchBar setShowsCancelButton: YES animated: YES];
 }
 
+/*DONE*/
 -(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     isFiltered = NO;
     [self.tableView reloadData];
@@ -95,10 +121,13 @@
         for(int sectionIndex = 0; sectionIndex < 26; sectionIndex++) {
             NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
             NSMutableArray *sectionToAddTo = [tempDic objectForKey:[NSNumber numberWithInt:sectionIndex]];
-            for (NSString *str in currentSection) {
-                NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
-                if(stringRange.location != NSNotFound) {
-                    [sectionToAddTo addObject:str];
+            for (NSMutableArray *nameArray in currentSection) {
+                NSString *nameStr = [nameArray objectAtIndex:0];
+                NSString *displayNameStr = [nameArray objectAtIndex:1];
+                NSRange nameStringRange = [nameStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
+                NSRange displayNameStringRange = [displayNameStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
+                if(nameStringRange.location != NSNotFound || displayNameStringRange.location != NSNotFound) {
+                    [sectionToAddTo addObject:nameArray];
                 }
             }
         }
@@ -159,10 +188,12 @@
     
     if(isFiltered) {
         NSMutableArray *currentFilteredSection = [allFilteredSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
-        cell.textLabel.text = [currentFilteredSection objectAtIndex:indexPath.row];
+        NSMutableArray *nameArray = [currentFilteredSection objectAtIndex:indexPath.row];
+        cell.textLabel.text = [nameArray objectAtIndex:0];
     }else {
         NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
-        cell.textLabel.text = [currentSection objectAtIndex:indexPath.row];
+        NSMutableArray *nameArray = [currentSection objectAtIndex:indexPath.row];
+        cell.textLabel.text = [nameArray objectAtIndex:0];
     }
     return cell;
 }
@@ -172,6 +203,8 @@
     //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     //EditTheUsualsViewController *editVC = [[EditTheUsualsViewController alloc] init];
     //[self.navigationController pushViewController:editVC animated:YES];
+    //NSLog(@"indexPath %@", indexPath);
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"editTheUsualsSegue" sender:self];
     
 }
@@ -181,10 +214,30 @@
     EditTheUsualsViewController *editVC = segue.destinationViewController;
     NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt: self.tableView.indexPathForSelectedRow.section]];
     int arrayIndex = self.tableView.indexPathForSelectedRow.row;
-    NSString *cellInfo = [currentSection objectAtIndex:arrayIndex];
-    editVC.labelText = cellInfo;
+    NSMutableArray *nameArray = [currentSection objectAtIndex:arrayIndex];
+    NSString *cellName = [nameArray objectAtIndex:0];
+    NSString *cellDisplayName = [nameArray objectAtIndex:1];
+
+    NSMutableArray *cellInfo = [contactInfo objectForKey:cellDisplayName];
+    
+    editVC.nameLabelText = cellName;
+    editVC.displayNameLabelText = cellDisplayName;
+    editVC.phoneLabelText = [cellInfo objectAtIndex:0];
+    editVC.addressLabelText = [cellInfo objectAtIndex:1];
+    
+    
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    // Unselect the selected row if any
+    NSIndexPath*    selection = [self.tableView indexPathForSelectedRow];
+    if (selection) {
+        [self.tableView deselectRowAtIndexPath:selection animated:YES];
+    }
+}
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
