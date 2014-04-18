@@ -49,18 +49,16 @@
     self.tableView.dataSource = self;
     
     
-    
-    
     nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Oe", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], nil];
 
     
     
     contactInfo = [[NSMutableDictionary alloc] initWithCapacity:[nameArrays count]];
 
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"david.jpg",  nil] forKey:@"Dlaroue4"];
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"zack.jpg",  nil] forKey:@"Zackarious"];
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"ethan.jpg",  nil] forKey:@"Ethanry"];
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"vince.jpg",  nil] forKey:@"Oe"];
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"david.jpg",  nil] forKey:@"Dlaroue4"];
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"zack.jpg",  nil] forKey:@"Zackarious"];
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"ethan.jpg",  nil] forKey:@"Ethanry"];
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"vince.jpg",  nil] forKey:@"Oe"];
     
     
     
@@ -189,18 +187,18 @@
         NSMutableArray *currentFilteredSection = [allFilteredSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
         NSMutableArray *nameArray = [currentFilteredSection objectAtIndex:indexPath.row];
         cell.cellName.text = [nameArray objectAtIndex:0];
-        cell.cellDisplayName.text = [nameArray objectAtIndex:1];
+        cell.cellDisplayName.text = [NSString stringWithFormat:@"(%@)", [nameArray objectAtIndex:1]];
         
         NSMutableArray *cellInfo = [contactInfo objectForKey:[nameArray objectAtIndex:1]];
-        cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:2]];
+        cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:1]];
         
     }else {
         NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
         NSMutableArray *nameArray = [currentSection objectAtIndex:indexPath.row];
         cell.cellName.text = [nameArray objectAtIndex:0];
-        cell.cellDisplayName.text = [nameArray objectAtIndex:1];
+        cell.cellDisplayName.text = [NSString stringWithFormat:@"(%@)", [nameArray objectAtIndex:1]];
         NSMutableArray *cellInfo = [contactInfo objectForKey:[nameArray objectAtIndex:1]];
-        cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:2]];
+        cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:1]];
     }
     return cell;
 }
@@ -228,10 +226,9 @@
     NSMutableArray *cellInfo = [contactInfo objectForKey:cellDisplayName];
     
     editVC.nameLabelText = cellName;
-    editVC.displayNameLabelText = cellDisplayName;
+    editVC.displayNameLabelText = [NSString stringWithFormat:@"(%@)", cellDisplayName];
     editVC.phoneLabelText = [cellInfo objectAtIndex:0];
-    editVC.addressLabelText = [cellInfo objectAtIndex:1];
-    editVC.editImageName = [cellInfo objectAtIndex:2];
+    editVC.editImageName = [cellInfo objectAtIndex:1];
     
     
 }
@@ -246,6 +243,40 @@
         [self.tableView deselectRowAtIndexPath:selection animated:YES];
     }
 }
+
+
+/* THIS IS USED TO CHANGE THE DESIGN OF THE TABLEVIEW TITLE ATTRIBUTES
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44.0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    // create the parent view that will hold header Label
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, 300.0, 44.0)];
+    
+    // create the button object
+    UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.opaque = NO;
+    headerLabel.textColor = [UIColor blackColor];
+    headerLabel.highlightedTextColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:20];
+    headerLabel.frame = CGRectMake(10.0, 0.0, 300.0, 44.0);
+    
+    // If you want to align the header text as centered
+    // headerLabel.frame = CGRectMake(150.0, 0.0, 300.0, 44.0);
+    
+    headerLabel.text = @"TESTING"; // i.e. array element
+    [customView addSubview:headerLabel];
+    
+    return customView;
+}
+
+
+*/
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

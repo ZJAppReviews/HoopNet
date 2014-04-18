@@ -25,21 +25,35 @@
 
 - (void)viewDidLoad
 {
+    //Adds edit button at the top right of the EditTheUsualsView
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [super viewDidLoad];
     self.nameLabel.text = self.nameLabelText;
     self.displayNameLabel.text = self.displayNameLabelText;
     self.phoneLabel.text = self.phoneLabelText;
-    self.addressLabel.text = self.addressLabelText;
     self.editImageVIew.image = [UIImage imageNamed:self.editImageName];
     
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+//Functionality for edit button.
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    
+    if(editing == YES)
+    {
+        NSLog(@"ENTERING EDIT MODE");
+    } else {
+        NSLog(@"LEAVING EDIT MODE");
+    }
 }
 
 /*

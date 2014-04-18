@@ -26,8 +26,6 @@
 @property NSString *phoneLabelText;
 
 
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
-@property NSString *addressLabelText;
 
 
 
