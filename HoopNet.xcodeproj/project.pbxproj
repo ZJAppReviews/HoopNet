@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D30D01531900B52800BE8035 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D01521900B52800BE8035 /* CustomCell.m */; };
+		D30D01551900BB4C00BE8035 /* david.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01541900BB4C00BE8035 /* david.jpg */; };
+		D30D01571900C00600BE8035 /* zack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01561900C00600BE8035 /* zack.jpg */; };
+		D30D01591900C00C00BE8035 /* vince.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01581900C00C00BE8035 /* vince.jpg */; };
+		D30D015B1900C01000BE8035 /* ethan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D015A1900C01000BE8035 /* ethan.jpg */; };
 		D35CED9618F7D26F00A03E4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9518F7D26F00A03E4C /* Foundation.framework */; };
 		D35CED9818F7D26F00A03E4C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */; };
 		D35CED9A18F7D26F00A03E4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9918F7D26F00A03E4C /* UIKit.framework */; };
@@ -43,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D30D01511900B52800BE8035 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		D30D01521900B52800BE8035 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		D30D01541900BB4C00BE8035 /* david.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = david.jpg; sourceTree = "<group>"; };
+		D30D01561900C00600BE8035 /* zack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zack.jpg; sourceTree = "<group>"; };
+		D30D01581900C00C00BE8035 /* vince.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vince.jpg; sourceTree = "<group>"; };
+		D30D015A1900C01000BE8035 /* ethan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ethan.jpg; sourceTree = "<group>"; };
 		D35CED9218F7D26F00A03E4C /* HoopNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoopNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35CED9518F7D26F00A03E4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -192,11 +203,17 @@
 		D35CEDC518F7D27C00A03E4C /* TheUsuals */ = {
 			isa = PBXGroup;
 			children = (
+				D30D015A1900C01000BE8035 /* ethan.jpg */,
+				D30D01581900C00C00BE8035 /* vince.jpg */,
+				D30D01561900C00600BE8035 /* zack.jpg */,
+				D30D01541900BB4C00BE8035 /* david.jpg */,
 				D35CEDD118F7D3D200A03E4C /* TheUsualsStoryboard.storyboard */,
 				D35CEDDB18F7D40B00A03E4C /* TheUsualsViewController.h */,
 				D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */,
 				D3E8679818FA988F00B6F843 /* EditTheUsualsViewController.h */,
 				D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */,
+				D30D01511900B52800BE8035 /* CustomCell.h */,
+				D30D01521900B52800BE8035 /* CustomCell.m */,
 			);
 			name = TheUsuals;
 			sourceTree = "<group>";
@@ -297,12 +314,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30D01551900BB4C00BE8035 /* david.jpg in Resources */,
 				D35CEDC918F7D2B300A03E4C /* HoopNetStoryboard.storyboard in Resources */,
 				D35CEDD418F7D3DD00A03E4C /* MyEventsStoryboard.storyboard in Resources */,
+				D30D01591900C00C00BE8035 /* vince.jpg in Resources */,
 				D35CEDA018F7D26F00A03E4C /* InfoPlist.strings in Resources */,
+				D30D01571900C00600BE8035 /* zack.jpg in Resources */,
 				D35CEDCE18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard in Resources */,
 				D35CEDA818F7D26F00A03E4C /* Images.xcassets in Resources */,
 				D35CEDD218F7D3D200A03E4C /* TheUsualsStoryboard.storyboard in Resources */,
+				D30D015B1900C01000BE8035 /* ethan.jpg in Resources */,
 				D35CEDD018F7D3C400A03E4C /* SearchEventsStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +351,7 @@
 				D35CEDD718F7D3F100A03E4C /* CreateEventsViewController.m in Sources */,
 				D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */,
 				D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */,
+				D30D01531900B52800BE8035 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

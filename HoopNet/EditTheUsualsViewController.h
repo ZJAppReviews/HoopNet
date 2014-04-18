@@ -18,6 +18,9 @@
 @property NSString *displayNameLabelText;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *editImageVIew;
+@property NSString *editImageName;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property NSString *phoneLabelText;

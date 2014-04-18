@@ -31,6 +31,7 @@
     self.displayNameLabel.text = self.displayNameLabelText;
     self.phoneLabel.text = self.phoneLabelText;
     self.addressLabel.text = self.addressLabelText;
+    self.editImageVIew.image = [UIImage imageNamed:self.editImageName];
     
     // Do any additional setup after loading the view.
 }

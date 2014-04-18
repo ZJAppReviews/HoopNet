@@ -8,6 +8,7 @@
 
 #import "TheUsualsViewController.h"
 #import "EditTheUsualsViewController.h"
+#import "CustomCell.h"
 
 @interface TheUsualsViewController ()
 {
@@ -50,18 +51,16 @@
     
     
     
-    nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Poonany", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], [[NSArray alloc] initWithObjects:@"Daniel Something", @"Weirdo", nil], nil];
+    nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Oe", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], nil];
 
+    
+    
     contactInfo = [[NSMutableDictionary alloc] initWithCapacity:[nameArrays count]];
-    
-    info  = [[NSMutableArray alloc] initWithObjects:@"(323)-485-0292", @"931 S Ford Blvd",  nil];
-    
-    for(NSMutableArray *nameArray in nameArrays) {
-        NSString *displayName = [nameArray objectAtIndex:1];
-        NSLog(@"ADDING TO CONTACT INFO");
-        
-        [contactInfo setObject:info forKey:displayName];
-    }
+
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"david.jpg",  nil] forKey:@"Dlaroue4"];
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"zack.jpg",  nil] forKey:@"Zackarious"];
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"ethan.jpg",  nil] forKey:@"Ethanry"];
+    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"address", @"vince.jpg",  nil] forKey:@"Oe"];
     
     
     
@@ -181,19 +180,27 @@
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell"];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell"];
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
+        cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
     }
     
     if(isFiltered) {
         NSMutableArray *currentFilteredSection = [allFilteredSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
         NSMutableArray *nameArray = [currentFilteredSection objectAtIndex:indexPath.row];
-        cell.textLabel.text = [nameArray objectAtIndex:0];
+        cell.cellName.text = [nameArray objectAtIndex:0];
+        cell.cellDisplayName.text = [nameArray objectAtIndex:1];
+        
+        NSMutableArray *cellInfo = [contactInfo objectForKey:[nameArray objectAtIndex:1]];
+        cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:2]];
+        
     }else {
         NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
         NSMutableArray *nameArray = [currentSection objectAtIndex:indexPath.row];
-        cell.textLabel.text = [nameArray objectAtIndex:0];
+        cell.cellName.text = [nameArray objectAtIndex:0];
+        cell.cellDisplayName.text = [nameArray objectAtIndex:1];
+        NSMutableArray *cellInfo = [contactInfo objectForKey:[nameArray objectAtIndex:1]];
+        cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:2]];
     }
     return cell;
 }
@@ -224,6 +231,7 @@
     editVC.displayNameLabelText = cellDisplayName;
     editVC.phoneLabelText = [cellInfo objectAtIndex:0];
     editVC.addressLabelText = [cellInfo objectAtIndex:1];
+    editVC.editImageName = [cellInfo objectAtIndex:2];
     
     
 }
