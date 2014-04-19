@@ -11,7 +11,14 @@
 
 @interface TheUsualsViewController : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
+/*
+ List of friends 
+ */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+/*
+ Search bar object to search through The Usuals table view
+ */
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 

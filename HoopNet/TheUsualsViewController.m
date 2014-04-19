@@ -12,15 +12,26 @@
 
 @interface TheUsualsViewController ()
 {
+    /*
+     allSections and filtered sections contain information displayed in the table view
+     the way we know which dictionary to use depends on the Bool isFiltered
+     */
     NSMutableDictionary *allSections;
-    NSMutableArray *nameArrays;
-    NSMutableDictionary *contactInfo;
     NSMutableDictionary *allFilteredSections;
     BOOL isFiltered;
     
+    /*
+     nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs
+     */
+    NSMutableArray *nameArrays;
     
-    // MAYBE DELETE THIS
-    NSMutableArray *info;
+    /*
+     contactInfo is a dictionary that will map display names to a persons contact information
+     to be displayed in the editTheUsuals View
+     */
+    NSMutableDictionary *contactInfo;
+    
+
 }
 
 
@@ -49,12 +60,16 @@
     self.tableView.dataSource = self;
     
     
+    /*
+     Will get name, displayname pairs as a request from the server.
+     */
     nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Oe", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], nil];
 
     
-    
+    /*
+     Will fill up the dictionary making requests to server.
+     */
     contactInfo = [[NSMutableDictionary alloc] initWithCapacity:[nameArrays count]];
-
     [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"david.jpg",  nil] forKey:@"Dlaroue4"];
     [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"zack.jpg",  nil] forKey:@"Zackarious"];
     [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"ethan.jpg",  nil] forKey:@"Ethanry"];
@@ -65,7 +80,10 @@
     
     
     
-    
+    /*
+     Creates a dictionary mapping the section titles (a-z) to arrays containing nameArrays
+     This is how we get names ordered under the proper section header
+     */
     allSections = [[NSMutableDictionary alloc] initWithCapacity:26];
     for(int i = 0; i < 26; i++) {
         [allSections setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
@@ -80,23 +98,28 @@
     }
 }
 
-/*DONE*/
+/*
+ Brings up cancel button when the search bar is in use.
+ */
 - (void) searchBarTextDidBeginEditing: (UISearchBar*) searchBar {
     [searchBar setShowsCancelButton: YES animated: YES];
 }
 
-/*DONE*/
+/*
+ Provides functionality for when the cancel button in the search bar is clicked
+ */
 -(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     isFiltered = NO;
     [self.tableView reloadData];
     searchBar.text = @"";
     [searchBar setShowsCancelButton: NO animated: NO];
     [searchBar resignFirstResponder];
-    
 }
 
 
-/* Done */
+/* 
+ Provides functionality for when the search button in the keyboard is clicked
+ */
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton: NO animated: NO];
     [self.searchBar resignFirstResponder];
@@ -104,7 +127,10 @@
 }
 
 
-
+/*
+ This method is called everytime the search bar is in use and the inputs change
+ This provides the functionality for filtering the table view
+ */
 - (void) searchBar:(UISearchBar *) searchBar textDidChange:(NSString *)searchText {
     
     if (searchText.length == 0) {
@@ -129,24 +155,25 @@
             }
         }
         allFilteredSections = [tempDic copy];
-        //[self.tableView.dataSource tableView:self.tableView titleForFooterInSection:0];
-        
-        
     }
     [self.tableView reloadData];
 }
 
 
-/* Done */
+/*
+ Returns the number of existing sections (Those with nil number of rows are excluded in another method)
+ */
 - (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView {
     return [allSections count];
 }
 
 
-/* Done */
+/* 
+ Returns the number of rows under each section header in the table view and it takes the 
+ search bar being used into account
+ */
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection:(NSInteger)section {
     int numRows = 0;
-    //Should be number of names with people who fall under the given section.
     if (isFiltered) {
         NSMutableArray *currentSection = [allFilteredSections objectForKey:[NSNumber numberWithInt:section]];
         numRows = [currentSection count];
@@ -157,7 +184,9 @@
     return numRows;
 }
 
-/* Done */
+/*
+ This method helps us name each of the section headers i.e (a-z)
+ */
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     int asciiOffset = 65;
@@ -174,7 +203,9 @@
 }
 
 
-
+/*
+ This method implements the physical features of the cells in the table view
+ */
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
@@ -203,49 +234,53 @@
     return cell;
 }
 
+
+/*
+ Uses the segue editTheUsualsSegue in order to transfer data from The Usuals to EditVC
+ */
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   //STOPPED HERE
-    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //EditTheUsualsViewController *editVC = [[EditTheUsualsViewController alloc] init];
-    //[self.navigationController pushViewController:editVC animated:YES];
-    //NSLog(@"indexPath %@", indexPath);
-    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"editTheUsualsSegue" sender:self];
     
 }
 
+
+/*
+ Sends message between The Usuals and Edit The Usuals VCs in order to pass data between screens
+ */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
     EditTheUsualsViewController *editVC = segue.destinationViewController;
+    
+    //Abstracts data needed from args in order to retrieve a cell name and cell display name
     NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt: self.tableView.indexPathForSelectedRow.section]];
     int arrayIndex = self.tableView.indexPathForSelectedRow.row;
     NSMutableArray *nameArray = [currentSection objectAtIndex:arrayIndex];
     NSString *cellName = [nameArray objectAtIndex:0];
     NSString *cellDisplayName = [nameArray objectAtIndex:1];
 
+    //Goes into the cellInfo Dictionary to pass object values to EditVC over the segue
     NSMutableArray *cellInfo = [contactInfo objectForKey:cellDisplayName];
-    
     editVC.nameLabelText = cellName;
     editVC.displayNameLabelText = [NSString stringWithFormat:@"(%@)", cellDisplayName];
     editVC.phoneLabelText = [cellInfo objectAtIndex:0];
     editVC.editImageName = [cellInfo objectAtIndex:1];
-    
-    
 }
 
-
+/*
+ Method used to deselect cells in the table view
+ */
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     // Unselect the selected row if any
-    NSIndexPath*    selection = [self.tableView indexPathForSelectedRow];
+    NSIndexPath *selection = [self.tableView indexPathForSelectedRow];
     if (selection) {
         [self.tableView deselectRowAtIndexPath:selection animated:YES];
     }
 }
 
 
-/* THIS IS USED TO CHANGE THE DESIGN OF THE TABLEVIEW TITLE ATTRIBUTES
+/* This Chunk of Code Allows for the customization of section headers
+ Might use this to make a better distinction between cells and section headers
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -274,14 +309,8 @@
     
     return customView;
 }
-
-
 */
 
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -289,15 +318,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

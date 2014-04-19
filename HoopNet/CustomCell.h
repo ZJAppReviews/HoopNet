@@ -10,14 +10,12 @@
 
 @interface CustomCell : UITableViewCell
 
+
+/*
+ Custome objects within a table view cell in The Usuals
+ */
 @property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *cellName;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *cellDisplayName;
-
-
-
 
 @end

@@ -10,7 +10,9 @@
 
 @interface HoopNetViewController : UIViewController
 
-
+/*
+ Button methods on home page leading to each of the four story boards
+ */
 -(IBAction)goToCreateEvents;
 -(IBAction)goToSearchEvents;
 -(IBAction)goToTheUsuals;

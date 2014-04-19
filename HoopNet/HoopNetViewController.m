@@ -14,7 +14,9 @@
 
 @implementation HoopNetViewController
 
-
+/*
+ Routes the user to the story board where he can create an event
+ */
 -(void) goToCreateEvents {
     UIStoryboard *createEventsStoryBoard = [UIStoryboard storyboardWithName:@"CreateEventsStoryboard" bundle:nil];
     UIViewController *createEventsVC = [createEventsStoryBoard instantiateInitialViewController];
@@ -22,6 +24,9 @@
     [self presentViewController:createEventsVC animated:YES completion:nil];
 }
 
+/*
+ Routes the user to the story board where he can search for events he qualifies for
+ */
 -(void) goToSearchEvents {
     UIStoryboard *searchEventsStoryBoard = [UIStoryboard storyboardWithName:@"SearchEventsStoryboard" bundle:nil];
     UIViewController *searchEventsVC = [searchEventsStoryBoard instantiateInitialViewController];
@@ -29,6 +34,9 @@
     [self presentViewController:searchEventsVC animated:YES completion:nil];
 }
 
+/*
+ Routes the user to the story board where he can view all the friends he has made
+ */
 -(void) goToTheUsuals {
     UIStoryboard *theUsualsStoryBoard = [UIStoryboard storyboardWithName:@"TheUsualsStoryboard" bundle:nil];
     UIViewController *theUsualsVC = [theUsualsStoryBoard instantiateInitialViewController];
@@ -36,6 +44,9 @@
     [self presentViewController:theUsualsVC animated:YES completion:nil];
 }
 
+/*
+ Routes the user to the story board where he can view all events he has enlisted for
+ */
 -(void) goToMyEvents {
     UIStoryboard *myEventsStoryBoard = [UIStoryboard storyboardWithName:@"MyEventsStoryboard" bundle:nil];
     UIViewController *myEventsVC = [myEventsStoryBoard instantiateInitialViewController];

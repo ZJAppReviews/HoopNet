@@ -25,15 +25,20 @@
 
 - (void)viewDidLoad
 {
-    //Adds edit button at the top right of the EditTheUsualsView
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     [super viewDidLoad];
+    
+    /*
+     Initializing all objects In the Contact Info View
+     */
     self.nameLabel.text = self.nameLabelText;
     self.displayNameLabel.text = self.displayNameLabelText;
     self.phoneLabel.text = self.phoneLabelText;
     self.editImageVIew.image = [UIImage imageNamed:self.editImageName];
     
+    /*
+     Adds edit button at the top right of the EditTheUsualsView
+     */
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,7 +48,9 @@
 }
 
 
-//Functionality for edit button.
+/*
+ Functionality for edit button.
+ */
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
     [super setEditing:editing animated:animated];
