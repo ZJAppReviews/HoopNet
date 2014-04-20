@@ -133,6 +133,18 @@
                                 <rect key="frame" x="20" y="236" width="280" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGs-yA-aq1">
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pCA-dC-bON">
+                                <rect key="frame" x="20" y="194" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -140,6 +152,8 @@
                     <connections>
                         <outlet property="displayNameLabel" destination="gQj-5H-5L4" id="V9z-7n-LBU"/>
                         <outlet property="editImageVIew" destination="xke-Nh-O6r" id="TRF-UF-HfX"/>
+                        <outlet property="editNameTextField" destination="jGs-yA-aq1" id="DMh-T6-Jrq"/>
+                        <outlet property="editPhoneTextField" destination="pCA-dC-bON" id="67B-Z5-lIZ"/>
                         <outlet property="nameLabel" destination="h7Z-Ud-oJa" id="TsT-aK-s7B"/>
                         <outlet property="phoneLabel" destination="Ywx-Bh-31j" id="dxh-pP-MDN"/>
                     </connections>

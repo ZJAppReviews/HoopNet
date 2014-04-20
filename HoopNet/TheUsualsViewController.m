@@ -11,28 +11,11 @@
 #import "CustomCell.h"
 
 @interface TheUsualsViewController ()
-{
-    /*
-     allSections and filtered sections contain information displayed in the table view
-     the way we know which dictionary to use depends on the Bool isFiltered
-     */
-    NSMutableDictionary *allSections;
-    NSMutableDictionary *allFilteredSections;
-    BOOL isFiltered;
-    
-    /*
-     nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs
-     */
-    NSMutableArray *nameArrays;
-    
-    /*
-     contactInfo is a dictionary that will map display names to a persons contact information
-     to be displayed in the editTheUsuals View
-     */
-    NSMutableDictionary *contactInfo;
-    
 
+{
+    BOOL isFiltered;
 }
+
 
 
 @end
@@ -61,19 +44,21 @@
     
     
     /*
+     TODO: Make request to server in order to fill up container
      Will get name, displayname pairs as a request from the server.
      */
-    nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Oe", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], nil];
+    _nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Oe", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], nil];
 
     
     /*
+     TODO: Make request to server in order to fill up container
      Will fill up the dictionary making requests to server.
      */
-    contactInfo = [[NSMutableDictionary alloc] initWithCapacity:[nameArrays count]];
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"david.jpg",  nil] forKey:@"Dlaroue4"];
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"zack.jpg",  nil] forKey:@"Zackarious"];
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"ethan.jpg",  nil] forKey:@"Ethanry"];
-    [contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"vince.jpg",  nil] forKey:@"Oe"];
+    _contactInfo = [[NSMutableDictionary alloc] initWithCapacity:[_nameArrays count]];
+    [_contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"david.jpg",  nil] forKey:@"Dlaroue4"];
+    [_contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"zack.jpg",  nil] forKey:@"Zackarious"];
+    [_contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"ethan.jpg",  nil] forKey:@"Ethanry"];
+    [_contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"vince.jpg",  nil] forKey:@"Oe"];
     
     
     
@@ -84,16 +69,32 @@
      Creates a dictionary mapping the section titles (a-z) to arrays containing nameArrays
      This is how we get names ordered under the proper section header
      */
-    allSections = [[NSMutableDictionary alloc] initWithCapacity:26];
+    _allSections = [[NSMutableDictionary alloc] initWithCapacity:26];
     for(int i = 0; i < 26; i++) {
-        [allSections setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
+        [_allSections setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
     }
-    for(NSMutableArray *nameArray in nameArrays) {
+    for(NSMutableArray *nameArray in _nameArrays) {
         NSString *str = [nameArray objectAtIndex:0];
         int asciiOffset = 65;
         int asciiValue = [str characterAtIndex:0];
         int sectionIndex = asciiValue - asciiOffset;
-        NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
+        NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
+        [currentSection addObject:nameArray];
+    }
+}
+
+- (void) refreshAllSections {
+    [_allSections removeAllObjects];
+    _allSections = [[NSMutableDictionary alloc] initWithCapacity:26];
+    for(int i = 0; i < 26; i++) {
+        [_allSections setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
+    }
+    for(NSMutableArray *nameArray in _nameArrays) {
+        NSString *str = [nameArray objectAtIndex:0];
+        int asciiOffset = 65;
+        int asciiValue = [str characterAtIndex:0];
+        int sectionIndex = asciiValue - asciiOffset;
+        NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
         [currentSection addObject:nameArray];
     }
 }
@@ -142,7 +143,7 @@
             [tempDic setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
         }
         for(int sectionIndex = 0; sectionIndex < 26; sectionIndex++) {
-            NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
+            NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
             NSMutableArray *sectionToAddTo = [tempDic objectForKey:[NSNumber numberWithInt:sectionIndex]];
             for (NSMutableArray *nameArray in currentSection) {
                 NSString *nameStr = [nameArray objectAtIndex:0];
@@ -154,7 +155,7 @@
                 }
             }
         }
-        allFilteredSections = [tempDic copy];
+        _allFilteredSections = [tempDic copy];
     }
     [self.tableView reloadData];
 }
@@ -164,7 +165,7 @@
  Returns the number of existing sections (Those with nil number of rows are excluded in another method)
  */
 - (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView {
-    return [allSections count];
+    return [_allSections count];
 }
 
 
@@ -175,10 +176,10 @@
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection:(NSInteger)section {
     int numRows = 0;
     if (isFiltered) {
-        NSMutableArray *currentSection = [allFilteredSections objectForKey:[NSNumber numberWithInt:section]];
+        NSMutableArray *currentSection = [_allFilteredSections objectForKey:[NSNumber numberWithInt:section]];
         numRows = [currentSection count];
     }else {
-        NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:section]];
+        NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt:section]];
         numRows = [currentSection count];
     }
     return numRows;
@@ -193,7 +194,7 @@
     if(isFiltered) {
         return nil;
     }
-    NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:section]];
+    NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt:section]];
     if([currentSection count] < 1) {
         return nil;
     }else {
@@ -215,20 +216,20 @@
     }
     
     if(isFiltered) {
-        NSMutableArray *currentFilteredSection = [allFilteredSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
+        NSMutableArray *currentFilteredSection = [_allFilteredSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
         NSMutableArray *nameArray = [currentFilteredSection objectAtIndex:indexPath.row];
         cell.cellName.text = [nameArray objectAtIndex:0];
         cell.cellDisplayName.text = [NSString stringWithFormat:@"(%@)", [nameArray objectAtIndex:1]];
         
-        NSMutableArray *cellInfo = [contactInfo objectForKey:[nameArray objectAtIndex:1]];
+        NSMutableArray *cellInfo = [_contactInfo objectForKey:[nameArray objectAtIndex:1]];
         cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:1]];
         
     }else {
-        NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
+        NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
         NSMutableArray *nameArray = [currentSection objectAtIndex:indexPath.row];
         cell.cellName.text = [nameArray objectAtIndex:0];
         cell.cellDisplayName.text = [NSString stringWithFormat:@"(%@)", [nameArray objectAtIndex:1]];
-        NSMutableArray *cellInfo = [contactInfo objectForKey:[nameArray objectAtIndex:1]];
+        NSMutableArray *cellInfo = [_contactInfo objectForKey:[nameArray objectAtIndex:1]];
         cell.cellImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:1]];
     }
     return cell;
@@ -251,18 +252,23 @@
     EditTheUsualsViewController *editVC = segue.destinationViewController;
     
     //Abstracts data needed from args in order to retrieve a cell name and cell display name
-    NSMutableArray *currentSection = [allSections objectForKey:[NSNumber numberWithInt: self.tableView.indexPathForSelectedRow.section]];
+    NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt: self.tableView.indexPathForSelectedRow.section]];
     int arrayIndex = self.tableView.indexPathForSelectedRow.row;
     NSMutableArray *nameArray = [currentSection objectAtIndex:arrayIndex];
     NSString *cellName = [nameArray objectAtIndex:0];
     NSString *cellDisplayName = [nameArray objectAtIndex:1];
 
     //Goes into the cellInfo Dictionary to pass object values to EditVC over the segue
-    NSMutableArray *cellInfo = [contactInfo objectForKey:cellDisplayName];
+    NSMutableArray *cellInfo = [_contactInfo objectForKey:cellDisplayName];
     editVC.nameLabelText = cellName;
     editVC.displayNameLabelText = [NSString stringWithFormat:@"(%@)", cellDisplayName];
     editVC.phoneLabelText = [cellInfo objectAtIndex:0];
     editVC.editImageName = [cellInfo objectAtIndex:1];
+    
+    //Default values for editable text fields
+    editVC.phoneTextFieldText = [cellInfo objectAtIndex:0];
+    editVC.nameTextFieldText = cellName;
+    
 }
 
 /*
@@ -277,7 +283,37 @@
         [self.tableView deselectRowAtIndexPath:selection animated:YES];
     }
 }
-
+/*
+ Editing a cell
+ */
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+/*
+ Editing a cell
+ */
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        
+        
+        NSMutableArray *currentSection = [_allSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
+        [currentSection removeObjectAtIndex:indexPath.row];
+        //Deleting while within an active search
+        
+        
+        NSMutableArray *currentFilteredSection = [_allFilteredSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
+        if([currentFilteredSection count] > 0) {
+            [currentFilteredSection removeObjectAtIndex:indexPath.row];
+        }
+        
+        /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again*/
+        
+        [self.tableView reloadData];
+        //add code here for when you hit delete
+    }
+}
 
 /* This Chunk of Code Allows for the customization of section headers
  Might use this to make a better distinction between cells and section headers

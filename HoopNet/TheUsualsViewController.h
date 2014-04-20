@@ -12,7 +12,23 @@
 @interface TheUsualsViewController : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 /*
- List of friends 
+ allSections and filtered sections contain information displayed in the table view
+ the way we know which dictionary to use depends on the Bool isFiltered
+ */
+@property NSMutableDictionary *allSections;
+@property NSMutableDictionary *allFilteredSections;
+/*
+ nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs
+ */
+@property NSMutableArray *nameArrays;
+/*
+ contactInfo is a dictionary that will map display names to a persons contact information
+ to be displayed in the editTheUsuals View
+ */
+@property NSMutableDictionary *contactInfo;
+
+/*
+ List of friends
  */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -21,6 +37,6 @@
  */
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-
+- (void) refreshAllSections;
 
 @end
