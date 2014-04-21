@@ -105,6 +105,8 @@
         [theUsualsVC refreshAllSections];
         
         //Make changes to allFilteredSections results show from searchBar filter
+        NSString *searchText = theUsualsVC.searchBar.text;
+        [theUsualsVC searchBar:theUsualsVC.searchBar textDidChange: searchText];
     }
 }
 
