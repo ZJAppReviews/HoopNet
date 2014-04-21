@@ -73,7 +73,7 @@
         [self.phoneLabel setHidden:NO];
         [self.editNameTextField setHidden:YES];
         [self.editPhoneTextField setHidden:YES];
-        NSString *name = self.editNameTextField.text;
+        NSString *name = [self.editNameTextField.text capitalizedString];
         NSString *phone = self.editPhoneTextField.text;
         
         //Unwinding segue
@@ -93,11 +93,18 @@
         }
         [theUsualsVC.nameArrays replaceObjectAtIndex:indexToReplace withObject:[[NSMutableArray alloc] initWithObjects:name, cleanDisplayName, nil]];
         //Replace oldphone with phone in contactInfo with key cleanDisplayName
-        [theUsualsVC.contactInfo setObject:[[NSMutableArray alloc] initWithObjects:phone, @"david.jpg", nil] forKey:cleanDisplayName];
-        theUsualsVC.refreshAllSections;
-        [theUsualsVC.tableView reloadData];
+        NSMutableArray *cinfo = [theUsualsVC.contactInfo objectForKey:cleanDisplayName];
+        [cinfo replaceObjectAtIndex:0 withObject:phone];
+        [self.editPhoneTextField resignFirstResponder];
+        [self.editNameTextField resignFirstResponder];
         self.nameLabel.text = name;
         self.phoneLabel.text = phone;
+        self.phoneTextFieldText = phone;
+        self.nameTextFieldText = name;
+        
+        [theUsualsVC refreshAllSections];
+        
+        //Make changes to allFilteredSections results show from searchBar filter
     }
 }
 
