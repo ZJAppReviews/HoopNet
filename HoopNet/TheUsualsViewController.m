@@ -82,6 +82,15 @@
         NSMutableArray *currentSection = [self.allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
         [currentSection addObject:nameArray];
     }
+    
+    
+    //Addind add button
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
+    self.navigationItem.rightBarButtonItem  = addButton;
+}
+
+- (IBAction) addButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"addNewContactSegue" sender:self];
 }
 
 - (void) refreshAllSections {
@@ -254,26 +263,30 @@
  Sends message between The Usuals and Edit The Usuals VCs in order to pass data between screens
  */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    EditTheUsualsViewController *editVC = segue.destinationViewController;
     
-    //Abstracts data needed from args in order to retrieve a cell name and cell display name
-    NSMutableArray *currentSection = [self.allSections objectForKey:[NSNumber numberWithInt: self.tableView.indexPathForSelectedRow.section]];
-    int arrayIndex = self.tableView.indexPathForSelectedRow.row;
-    NSMutableArray *nameArray = [currentSection objectAtIndex:arrayIndex];
-    NSString *cellName = [nameArray objectAtIndex:0];
-    NSString *cellDisplayName = [nameArray objectAtIndex:1];
+    if([segue.identifier isEqualToString:@"editTheUsualsSegue"]) {
+        EditTheUsualsViewController *editVC = segue.destinationViewController;
+    
+        //Abstracts data needed from args in order to retrieve a cell name and cell display name
+        NSMutableArray *currentSection = [self.allSections objectForKey:[NSNumber numberWithInt: self.tableView.indexPathForSelectedRow.section]];
+        int arrayIndex = self.tableView.indexPathForSelectedRow.row;
+        NSMutableArray *nameArray = [currentSection objectAtIndex:arrayIndex];
+        NSString *cellName = [nameArray objectAtIndex:0];
+        NSString *cellDisplayName = [nameArray objectAtIndex:1];
 
-    //Goes into the cellInfo Dictionary to pass object values to EditVC over the segue
-    NSMutableArray *cellInfo = [self.contactInfo objectForKey:cellDisplayName];
-    editVC.nameLabelText = cellName;
-    editVC.displayNameLabelText = [NSString stringWithFormat:@"(%@)", cellDisplayName];
-    editVC.phoneLabelText = [cellInfo objectAtIndex:0];
-    editVC.editImageName = [cellInfo objectAtIndex:1];
+        //Goes into the cellInfo Dictionary to pass object values to EditVC over the segue
+        NSMutableArray *cellInfo = [self.contactInfo objectForKey:cellDisplayName];
+        editVC.nameLabelText = cellName;
+        editVC.displayNameLabelText = [NSString stringWithFormat:@"(%@)", cellDisplayName];
+        editVC.phoneLabelText = [cellInfo objectAtIndex:0];
+        editVC.editImageName = [cellInfo objectAtIndex:1];
     
-    //Default values for editable text fields
-    editVC.phoneTextFieldText = [cellInfo objectAtIndex:0];
-    editVC.nameTextFieldText = cellName;
-    
+        //Default values for editable text fields
+        editVC.phoneTextFieldText = [cellInfo objectAtIndex:0];
+        editVC.nameTextFieldText = cellName;
+    }else if ([segue.identifier isEqualToString:@"addNewContactSegue"]) {
+        //This is executed when the + icon is pressed
+    }
 }
 
 /*
@@ -318,6 +331,11 @@
         //add code here for when you hit delete
     }
 }
+
+
+
+
+
 
 /* This Chunk of Code Allows for the customization of section headers
  Might use this to make a better distinction between cells and section headers

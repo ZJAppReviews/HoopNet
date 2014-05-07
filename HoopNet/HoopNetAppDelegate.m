@@ -8,6 +8,7 @@
 
 #import "HoopNetAppDelegate.h"
 #import "HoopNetViewController.h"
+#import <Parse/Parse.h>
 
 @implementation HoopNetAppDelegate
 
@@ -19,6 +20,13 @@
     // Override point for customization after application launch.
     //self.window.backgroundColor = [UIColor whiteColor];
     //[self.window makeKeyAndVisible];
+    
+    [Parse setApplicationId:@"zMBJkkPMwbW3m0OdJTJFJLeFHBUsQcueOrc7LaND"
+                  clientKey:@"0b1A08xZSsGezmowIGwnKZNTVKTAJfWT0TN43N9H"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
     return YES;
     
 }

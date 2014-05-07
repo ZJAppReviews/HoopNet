@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="awS-F2-eqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1179" y="-280"/>
+            <point key="canvasLocation" x="-1311" y="244"/>
         </scene>
         <!--The Usuals View Controller - The Usuals-->
         <scene sceneID="zNk-LF-Bw0">
@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MgX-t2-7CC">
-                                <rect key="frame" x="0.0" y="104" width="320" height="380"/>
+                                <rect key="frame" x="0.0" y="104" width="320" height="361"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -79,12 +79,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="The Usuals" id="8tO-Lz-6d2"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="F3O-se-BdX" id="C5S-G7-bv1"/>
                         <outlet property="searchDisplayController" destination="vzd-cI-7BE" id="IKe-kM-YcH"/>
                         <outlet property="tableView" destination="MgX-t2-7CC" id="NFj-PK-Gj5"/>
                         <segue destination="weh-Km-OMX" kind="push" identifier="editTheUsualsSegue" id="FYp-qF-axX"/>
+                        <segue destination="2hQ-YZ-h4W" kind="push" identifier="addNewContactSegue" id="Cqc-SX-wbi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w0V-Ov-lo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,7 +100,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-758" y="-280"/>
+            <point key="canvasLocation" x="-842" y="244"/>
         </scene>
         <!--Edit The Usuals View Controller-->
         <scene sceneID="JuP-v6-L8L">
@@ -123,7 +126,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQj-5H-5L4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Display Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQj-5H-5L4">
                                 <rect key="frame" x="20" y="151" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -160,7 +163,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4O-zb-bui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="-280"/>
+            <point key="canvasLocation" x="-305" y="428"/>
+        </scene>
+        <!--Add Contact View Controller - New Contact-->
+        <scene sceneID="Z05-uM-HRQ">
+            <objects>
+                <viewController id="2hQ-YZ-h4W" customClass="AddContactViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sgy-kl-2Py"/>
+                        <viewControllerLayoutGuide type="bottom" id="hCJ-ye-2lk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ejr-81-FpL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Contact" id="naK-MT-mAo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olg-TA-BSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-297" y="-281"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
