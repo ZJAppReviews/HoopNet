@@ -8,7 +8,7 @@
 
 #import "TheUsualsViewController.h"
 #import "EditTheUsualsViewController.h"
-#import "CustomCell.h"
+#import "TheUsualsCustomCell.h"
 
 @interface TheUsualsViewController ()
 
@@ -224,9 +224,9 @@
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell"];
+    TheUsualsCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainCell"];
     if(cell == nil) {
-        cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
+        cell = [[TheUsualsCustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MainCell"];
     }
     
     if(isFiltered) {
