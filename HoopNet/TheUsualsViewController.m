@@ -61,10 +61,6 @@
     [self.contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"vince.jpg",  nil] forKey:@"Oe"];
     
     
-    
-    
-    
-    
     /*
      Creates a dictionary mapping the section titles (a-z) to arrays containing nameArrays
      This is how we get names ordered under the proper section header
@@ -83,8 +79,7 @@
         [currentSection addObject:nameArray];
     }
     
-    
-    //Addind add button
+    //Addin add button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem  = addButton;
 }
@@ -331,11 +326,6 @@
         //add code here for when you hit delete
     }
 }
-
-
-
-
-
 
 /* This Chunk of Code Allows for the customization of section headers
  Might use this to make a better distinction between cells and section headers
