@@ -8,6 +8,7 @@
 
 #import "MyEventsViewController.h"
 #import "MyEventsTableViewCell.h"
+#import "EditMyEventViewController.h"
 #import "Event.h"
 
 @interface MyEventsViewController ()
@@ -168,6 +169,30 @@
  Prepare for the segue
 */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"editEventSegue"]) {
+        EditMyEventViewController *destinationController = segue.destinationViewController;
+        
+        //Abstracts data needed from args in order to retrieve a cell name and cell display name
+        int arrayIndex = self.tableView.indexPathForSelectedRow.row;
+        Event* selectedEvent = [self.eventArray objectAtIndex:arrayIndex];
+        
+        destinationController.currentEvent = selectedEvent;
+        destinationController.navigationController.title = selectedEvent.name;
+        
+        /*
+        editVC.nameLabelText = cellName;
+        editVC.displayNameLabelText = [NSString stringWithFormat:@"(%@)", cellDisplayName];
+        editVC.phoneLabelText = [cellInfo objectAtIndex:0];
+        editVC.editImageName = [cellInfo objectAtIndex:1];
+        
+        //Default values for editable text fields
+        editVC.phoneTextFieldText = [cellInfo objectAtIndex:0];
+        editVC.nameTextFieldText = cellName;
+        */
+        
+    }else if ([segue.identifier isEqualToString:@"addNewEventSegue"]) {
+        //This is executed when the + icon is pressed
+    }
 }
 
 /*
@@ -199,7 +224,6 @@
         
         Event *eventToDelete = [self.eventArray objectAtIndex:indexPath.row];
         [self.eventArray removeObject:eventToDelete];
-        [self refreshAllSections];
         
         /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again*/
         [self.tableView reloadData];

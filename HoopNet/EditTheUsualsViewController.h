@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property NSString *phoneLabelText;
 
-
 @property (weak, nonatomic) IBOutlet UITextField *editNameTextField;
 @property (weak, nonatomic) NSString *nameTextFieldText;
 

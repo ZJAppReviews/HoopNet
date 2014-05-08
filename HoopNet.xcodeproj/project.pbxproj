@@ -11,6 +11,7 @@
 		CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */; };
 		CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */; };
 		CBCFB5DB191B69E800F26960 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DA191B69E800F26960 /* Event.m */; };
+		CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */; };
 		D30D01551900BB4C00BE8035 /* david.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01541900BB4C00BE8035 /* david.jpg */; };
 		D30D01571900C00600BE8035 /* zack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01561900C00600BE8035 /* zack.jpg */; };
 		D30D01591900C00C00BE8035 /* vince.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01581900C00C00BE8035 /* vince.jpg */; };
@@ -72,6 +73,8 @@
 		CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsTableViewController.m; sourceTree = "<group>"; };
 		CBCFB5D9191B69E800F26960 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		CBCFB5DA191B69E800F26960 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		CBCFB5DC191B939800F26960 /* EditMyEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMyEventViewController.h; sourceTree = "<group>"; };
+		CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMyEventViewController.m; sourceTree = "<group>"; };
 		D30D01541900BB4C00BE8035 /* david.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = david.jpg; sourceTree = "<group>"; };
 		D30D01561900C00600BE8035 /* zack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zack.jpg; sourceTree = "<group>"; };
 		D30D01581900C00C00BE8035 /* vince.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vince.jpg; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 				D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */,
 				CBCFB5D9191B69E800F26960 /* Event.h */,
 				CBCFB5DA191B69E800F26960 /* Event.m */,
+				CBCFB5DC191B939800F26960 /* EditMyEventViewController.h */,
+				CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */,
 			);
 			name = MyEvents;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */,
 				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
 				CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */,
+				CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */,
 				CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */,
 				CB1754C9191B542300BA4433 /* MyEventsTableViewCell.m in Sources */,
 				D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */,
