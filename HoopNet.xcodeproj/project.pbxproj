@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */; };
 		CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */; };
 		D30D01531900B52800BE8035 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D01521900B52800BE8035 /* CustomCell.m */; };
 		D30D01551900BB4C00BE8035 /* david.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01541900BB4C00BE8035 /* david.jpg */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB8BC5CA191B3C4B00EA2BED /* TheUsualsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUsualsCustomCell.h; sourceTree = SOURCE_ROOT; };
+		CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsCustomCell.m; sourceTree = SOURCE_ROOT; };
 		CB9572EA18FA89F60063D188 /* SearchEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventsTableViewController.h; sourceTree = "<group>"; };
 		CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsTableViewController.m; sourceTree = "<group>"; };
 		D30D01511900B52800BE8035 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */,
 				D30D01511900B52800BE8035 /* CustomCell.h */,
 				D30D01521900B52800BE8035 /* CustomCell.m */,
+				CB8BC5CA191B3C4B00EA2BED /* TheUsualsCustomCell.h */,
+				CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */,
 				D3ACEC401904D9DE00C8CFEA /* AddContactViewController.h */,
 				D3ACEC411904D9DE00C8CFEA /* AddContactViewController.m */,
 			);
@@ -414,6 +419,7 @@
 				D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */,
 				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
 				CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */,
+				CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */,
 				D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */,
 				D35CEDE018F7D41900A03E4C /* MyEventsViewController.m in Sources */,
 				D3ACEC421904D9DE00C8CFEA /* AddContactViewController.m in Sources */,

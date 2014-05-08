@@ -5,31 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>69F5739C-F3EC-4067-8604-334B7FC0E90C</string>
-=======
-	<string>793DA71A-3E8D-470C-916B-CF1E8FBB83D3</string>
->>>>>>> 53ef40cd6485a74d62c31702e97c4dfd5dd25944
+	<string>9EDA9FD7-EE8A-4731-85F1-6B3031B0051E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>HoopNet</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>855B6B27-75AA-473B-9BAD-C826169BF47C</key>
-=======
-		<key>BC2D0477-3E9B-40DD-9706-65E80C3FE456</key>
->>>>>>> 53ef40cd6485a74d62c31702e97c4dfd5dd25944
+		<key>B33D15F5-B3C5-45D0-9F48-58591AB120FA</key>
 		<string>https://github.com/dlaroue/HoopNet.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>HoopNet.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>855B6B27-75AA-473B-9BAD-C826169BF47C</key>
-=======
-		<key>BC2D0477-3E9B-40DD-9706-65E80C3FE456</key>
->>>>>>> 53ef40cd6485a74d62c31702e97c4dfd5dd25944
+		<key>B33D15F5-B3C5-45D0-9F48-58591AB120FA</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -37,22 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
-	<string>855B6B27-75AA-473B-9BAD-C826169BF47C</string>
-=======
-	<string>BC2D0477-3E9B-40DD-9706-65E80C3FE456</string>
->>>>>>> 53ef40cd6485a74d62c31702e97c4dfd5dd25944
+	<string>B33D15F5-B3C5-45D0-9F48-58591AB120FA</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
-			<string>855B6B27-75AA-473B-9BAD-C826169BF47C</string>
-=======
-			<string>BC2D0477-3E9B-40DD-9706-65E80C3FE456</string>
->>>>>>> 53ef40cd6485a74d62c31702e97c4dfd5dd25944
+			<string>B33D15F5-B3C5-45D0-9F48-58591AB120FA</string>
 			<key>IDESourceControlWCCName</key>
 			<string>HoopNet</string>
 		</dict>
