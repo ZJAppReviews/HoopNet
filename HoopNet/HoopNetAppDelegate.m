@@ -9,6 +9,8 @@
 #import "HoopNetAppDelegate.h"
 #import "HoopNetViewController.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @implementation HoopNetAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,8 +21,27 @@
     // Override point for customization after application launch.
     //self.window.backgroundColor = [UIColor whiteColor];
     //[self.window makeKeyAndVisible];
-    return YES;
     
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7)
+    {
+        self.window.clipsToBounds = YES;
+        [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleDefault];
+        
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        if(orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
+        {
+            self.window.frame =  CGRectMake(20, 0,self.window.frame.size.width-20,self.window.frame.size.height);
+            self.window.bounds = CGRectMake(20, 0, self.window.frame.size.width, self.window.frame.size.height);
+        } else {
+            self.window.frame =  CGRectMake(0,20,self.window.frame.size.width,self.window.frame.size.height-20);
+            self.window.bounds = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height);
+        }
+    }
+    
+    return YES;
+
 }
 
 
