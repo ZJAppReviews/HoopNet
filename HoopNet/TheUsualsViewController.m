@@ -43,6 +43,78 @@
     self.tableView.dataSource = self;
     
     
+    ///////////////
+    //Starting my query to add contact
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *currentUserName = currentUser[@"username"];
+    PFQuery *firstRowQuery = [PFQuery queryWithClassName:@"Relationships"];
+    [firstRowQuery whereKey:@"personOne" equalTo:currentUserName];
+    PFQuery *secondRowQuery = [PFQuery queryWithClassName:@"Relationships"];
+    [secondRowQuery whereKey:@"personTwo" equalTo:currentUserName];
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[firstRowQuery,secondRowQuery]];
+    //[self.userNames removeAllObjects];
+    self.userNames = [[NSMutableSet alloc] init];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            // The find succeeded.
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                //NSDictionary *names = object[@"estimatedData"];
+                //NSArray *keys = [object allKeys];
+                NSString *firstPerson = [object objectForKey:@"personOne"];
+                NSString *secondPerson = [object objectForKey:@"personTwo"];
+                [self.userNames addObject:firstPerson];
+                [self.userNames addObject:secondPerson];
+                //NSLog(@"%@", object.objectId);
+            }
+            
+            
+            self.allData = [[NSMutableArray alloc] init];
+            for(NSString *uName in self.userNames) {
+                //PFQuery *query = [PFQuery queryWithClassName:@"User"];
+                PFQuery *query= [PFUser query];
+                [query whereKey:@"username" equalTo:uName];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *userObjects, NSError *error) {
+                    if (!error) {
+                        // The find succeeded.
+                        NSLog(@"Successfully retrieved %d scores.", userObjects.count);
+                        // Do something with the found objects
+                        for (PFObject *userObject in userObjects) {
+                            NSString *displayName = userObject[@"dname"];
+                            NSString *userName = userObject[@"username"];
+                            NSString *phone = userObject[@"phone"];
+                            NSString *image = userObject[@"image"];
+                            NSMutableArray *contactInfo = [[NSMutableArray alloc] initWithObjects:displayName,userName,phone,image, nil];
+                            [self.allData addObject:contactInfo];
+                        }
+                        
+                        
+                        
+                        
+                    } else {
+                        // Log details of the failure
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    }
+                }];
+                
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    
+    }];
+    
+    //////////////
+    
+    
+    
+    
+    
+    
+    
+    
     /*
      TODO: Make request to server in order to fill up container
      Will get name, displayname pairs as a request from the server.
@@ -82,10 +154,18 @@
     //Addin add button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem  = addButton;
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeBUttonPressed:)];
+    self.navigationItem.leftBarButtonItem = homeButton;
 }
 
 - (IBAction) addButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"addNewContactSegue" sender:self];
+}
+
+
+- (IBAction) homeBUttonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) refreshAllSections {
