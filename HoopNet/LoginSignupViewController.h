@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface LoginSignupViewController : UIViewController
+@interface LoginSignupViewController : UIViewController <UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *logInUserNameTF;
@@ -22,6 +22,14 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *loginWarningLabel;
+
+
+
+
+
+-(IBAction)login:(id)sender;
 
 -(IBAction) goToSignUp:(id)sender;
 

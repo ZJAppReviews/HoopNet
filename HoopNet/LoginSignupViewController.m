@@ -25,9 +25,43 @@
 
 - (void)viewDidLoad
 {
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        [self performSegueWithIdentifier:@"homeSegue" sender:nil];
+    }
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.logInPassWordTF.delegate = self;
+    self.logInUserNameTF.delegate = self;
+    [self.loginWarningLabel setHidden:YES];
+    self.loginWarningLabel.numberOfLines = 0;
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.logInPassWordTF resignFirstResponder];
+    [self.logInUserNameTF resignFirstResponder];
+    return YES;
+}
+
+
+
+-(void) login:(id)sender
+{
+    [self.loginWarningLabel setHidden:YES];
+    [PFUser logInWithUsernameInBackground:self.logInUserNameTF.text password:self.logInPassWordTF.text block:^(PFUser *user, NSError *error) {
+        if (user) {
+            // Do stuff after successful login.
+            [self performSegueWithIdentifier:@"homeSegue" sender:sender];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            [self.loginWarningLabel setHidden:NO];
+            self.loginWarningLabel.text = errorString;
+            // The login failed. Check error to see why.
+        }
+    }];
+}
+
 
 
 

@@ -56,6 +56,14 @@
 
 
 
+-(void) logOut:(id)sender {
+    [PFUser logOut];
+    
+    //PFUser *currentUser = [PFUser currentUser]; // this will now be nil
+    [self performSegueWithIdentifier:@"logoutSegue" sender:sender];
+}
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

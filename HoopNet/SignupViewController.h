@@ -18,19 +18,33 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *signupPasswordTF;
 
+
+@property (weak, nonatomic) IBOutlet UITextField *signupEmailTF;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *signupPhoneTF;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *signupConfirmPWordTF;
+
+
+
 @property (weak, nonatomic) IBOutlet UIButton *finishSignUpButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *backToLoginButton;
+
+
+
 -(IBAction)addNewUser:(id)sender;
+
+-(IBAction)goToLogin:(id)sender;
 
 
 
 // Warning Labels
 
-@property (weak, nonatomic) IBOutlet UILabel *dNameWarning;
+@property (weak, nonatomic) IBOutlet UILabel *signUpWarningLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *uNameWarning;
-
-@property (weak, nonatomic) IBOutlet UILabel *pWordWarning;
 
 
 @end

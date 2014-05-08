@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <Parse/Parse.h>
 @interface HoopNetViewController : UIViewController
 
 /*
@@ -17,6 +17,13 @@
 -(IBAction)goToSearchEvents;
 -(IBAction)goToTheUsuals;
 -(IBAction)goToMyEvents;
+
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+
+
+
+-(IBAction)logOut:(id)sender;
+
 
 
 @end

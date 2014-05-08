@@ -29,54 +29,113 @@
     self.signupPasswordTF.delegate = self;
     self.signUpDisplayNameTF.delegate = self;
     self.signUpUserNameTF.delegate = self;
-    [self.uNameWarning setHidden:YES];
-    [self.dNameWarning setHidden:YES];
-    [self.pWordWarning setHidden:YES];
+    self.signupPhoneTF.delegate = self;
+    self.signupEmailTF.delegate = self;
+    self.signupConfirmPWordTF.delegate = self;
+    self.signUpWarningLabel.numberOfLines = 0;
+    
+    [self.signUpWarningLabel setHidden:YES];
+    
+    
     // Do any additional setup after loading the view.
     
 }
 
--(void) addNewUser:(id)sender
-{
-    BOOL errorExist = NO;
-    NSString *dName = self.signUpDisplayNameTF.text;
-    NSString *uName = self.signUpUserNameTF.text;
-    NSString *pWord = self.signupPasswordTF.text;
-    if([dName isEqualToString:nil] || [dName length] < 5) {
-        [self.dNameWarning setHidden:NO];
-        errorExist = YES;
-    }
-    if([uName isEqualToString:nil] || [uName length] < 5) {
-        [self.uNameWarning setHidden:NO];
-        errorExist = YES;
-    }
-    if([pWord isEqualToString:nil] || [pWord length] < 5) {
-        [self.pWordWarning setHidden:NO];
-        errorExist = YES;
-    }
-    if(!errorExist) {
-        [self.uNameWarning setHidden:YES];
-        [self.dNameWarning setHidden:YES];
-        [self.pWordWarning setHidden:YES];
-    }
-    
-    if(!errorExist) {
-        PFObject *newUser = [PFObject objectWithClassName:@"User"];
-        newUser[@"dName"] = dName;
-        newUser[@"uName"] = uName;
-        newUser[@"pWord"] = pWord;
-        [newUser saveInBackground];
-        [self performSegueWithIdentifier:@"signinSegue" sender:sender];
-    }
-    
-}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.signUpDisplayNameTF resignFirstResponder];
     [self.signUpUserNameTF resignFirstResponder];
     [self.signupPasswordTF resignFirstResponder];
+    [self.signupEmailTF resignFirstResponder];
+    [self.signupPhoneTF resignFirstResponder];
+    [self.signupConfirmPWordTF resignFirstResponder];
     return YES;
 }
+
+
+- (void)addNewUser:(id)sender{
+    [self.signUpWarningLabel setHidden:YES];
+    PFUser *user = [PFUser user];
+    user.username = self.signUpUserNameTF.text;
+    user.password = self.signupPasswordTF.text;
+    if(![self.signupEmailTF.text isEqualToString:@""]) {
+        user.email = self.signupEmailTF.text;
+    }
+    if(![self.signupPhoneTF.text isEqualToString:@""]) {
+        user[@"phone"] = self.signupPhoneTF.text;
+    }
+    
+    
+    // other fields can be set just like with PFObject
+    
+    user[@"dname"] = self.signUpDisplayNameTF.text;
+    
+    if([self.signUpDisplayNameTF.text isEqualToString:@""]){
+        [self.signUpWarningLabel setHidden:NO];
+        self.signUpWarningLabel.text = @"Must have a Display Name";
+    }else if([self.signUpUserNameTF.text isEqualToString:@""]) {
+        [self.signUpWarningLabel setHidden:NO];
+        self.signUpWarningLabel.text = @"Must have a User Name";
+    }else if([self.signupPasswordTF.text isEqualToString:@""]) {
+        [self.signUpWarningLabel setHidden:NO];
+        self.signUpWarningLabel.text = @"Must have a Password";
+    }else if(![self.signupConfirmPWordTF.text isEqualToString:self.signupPasswordTF.text]) {
+        [self.signUpWarningLabel setHidden:NO];
+        self.signUpWarningLabel.text = @"Passwords don't match";
+    }else {
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                // Hooray! Let them use the app now.
+                
+                //PFUser *currentUser = [PFUser currentUser];
+                [self performSegueWithIdentifier:@"homeSegue" sender:sender];
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                [self.signUpWarningLabel setHidden:NO];
+                self.signUpWarningLabel.text = errorString;
+            
+                // Show the errorString somewhere and let the user try again.
+            }
+        }];
+    }
+}
+
+
+-(void)goToLogin:(id)sender {
+    [self performSegueWithIdentifier:@"signinSegue" sender:sender];
+}
+
+
+
+//Used to slide view when keyboard pops up
+/*
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+*/
+// Sliding Text fields end here
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
