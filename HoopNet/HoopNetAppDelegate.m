@@ -8,6 +8,7 @@
 
 #import "HoopNetAppDelegate.h"
 #import "HoopNetViewController.h"
+#import <Parse/Parse.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -21,6 +22,14 @@
     // Override point for customization after application launch.
     //self.window.backgroundColor = [UIColor whiteColor];
     //[self.window makeKeyAndVisible];
+    
+    [Parse setApplicationId:@"zMBJkkPMwbW3m0OdJTJFJLeFHBUsQcueOrc7LaND"
+                  clientKey:@"0b1A08xZSsGezmowIGwnKZNTVKTAJfWT0TN43N9H"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    return YES;
     
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     

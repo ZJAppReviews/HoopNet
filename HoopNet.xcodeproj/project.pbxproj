@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */; };
+		D30D01531900B52800BE8035 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D30D01521900B52800BE8035 /* CustomCell.m */; };
+		D30D01551900BB4C00BE8035 /* david.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01541900BB4C00BE8035 /* david.jpg */; };
+		D30D01571900C00600BE8035 /* zack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01561900C00600BE8035 /* zack.jpg */; };
+		D30D01591900C00C00BE8035 /* vince.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01581900C00C00BE8035 /* vince.jpg */; };
+		D30D015B1900C01000BE8035 /* ethan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D015A1900C01000BE8035 /* ethan.jpg */; };
+		D341EDFD191A54F900192626 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EDFC191A54F900192626 /* AudioToolbox.framework */; };
+		D341EDFF191A550500192626 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EDFE191A550500192626 /* CFNetwork.framework */; };
+		D341EE01191A551800192626 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE00191A551800192626 /* CoreLocation.framework */; };
+		D341EE03191A552500192626 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE02191A552500192626 /* libz.dylib */; };
+		D341EE05191A552E00192626 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE04191A552E00192626 /* MobileCoreServices.framework */; };
+		D341EE07191A553600192626 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE06191A553600192626 /* QuartzCore.framework */; };
+		D341EE09191A553E00192626 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE08191A553E00192626 /* Security.framework */; };
+		D341EE0B191A554700192626 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE0A191A554700192626 /* StoreKit.framework */; };
+		D341EE0D191A555600192626 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE0C191A555600192626 /* SystemConfiguration.framework */; };
+		D341EE0F191A55DF00192626 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE0E191A55DF00192626 /* Parse.framework */; };
 		D35CED9618F7D26F00A03E4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9518F7D26F00A03E4C /* Foundation.framework */; };
 		D35CED9818F7D26F00A03E4C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */; };
 		D35CED9A18F7D26F00A03E4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35CED9918F7D26F00A03E4C /* UIKit.framework */; };
@@ -30,6 +45,10 @@
 		D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */; };
 		D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */; };
 		D35CEDE018F7D41900A03E4C /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */; };
+		D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D399048E191A4DFA00FC3FD2 /* LoginSignupViewController.m */; };
+		D3990492191A4FC600FC3FD2 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3990491191A4FC600FC3FD2 /* SignupViewController.m */; };
+		D3ACEC421904D9DE00C8CFEA /* AddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ACEC411904D9DE00C8CFEA /* AddContactViewController.m */; };
+		D3E8679A18FA988F00B6F843 /* EditTheUsualsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +64,22 @@
 /* Begin PBXFileReference section */
 		CB9572EA18FA89F60063D188 /* SearchEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventsTableViewController.h; sourceTree = "<group>"; };
 		CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsTableViewController.m; sourceTree = "<group>"; };
+		D30D01511900B52800BE8035 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		D30D01521900B52800BE8035 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		D30D01541900BB4C00BE8035 /* david.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = david.jpg; sourceTree = "<group>"; };
+		D30D01561900C00600BE8035 /* zack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zack.jpg; sourceTree = "<group>"; };
+		D30D01581900C00C00BE8035 /* vince.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vince.jpg; sourceTree = "<group>"; };
+		D30D015A1900C01000BE8035 /* ethan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ethan.jpg; sourceTree = "<group>"; };
+		D341EDFC191A54F900192626 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D341EDFE191A550500192626 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D341EE00191A551800192626 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D341EE02191A552500192626 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D341EE04191A552E00192626 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D341EE06191A553600192626 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D341EE08191A553E00192626 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D341EE0A191A554700192626 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D341EE0C191A555600192626 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D341EE0E191A55DF00192626 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D35CED9218F7D26F00A03E4C /* HoopNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoopNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35CED9518F7D26F00A03E4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -76,6 +111,14 @@
 		D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsViewController.m; sourceTree = "<group>"; };
 		D35CEDDE18F7D41900A03E4C /* MyEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsViewController.h; sourceTree = "<group>"; };
 		D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsViewController.m; sourceTree = "<group>"; };
+		D399048D191A4DFA00FC3FD2 /* LoginSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSignupViewController.h; sourceTree = "<group>"; };
+		D399048E191A4DFA00FC3FD2 /* LoginSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSignupViewController.m; sourceTree = "<group>"; };
+		D3990490191A4FC600FC3FD2 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		D3990491191A4FC600FC3FD2 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		D3ACEC401904D9DE00C8CFEA /* AddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddContactViewController.h; sourceTree = "<group>"; };
+		D3ACEC411904D9DE00C8CFEA /* AddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContactViewController.m; sourceTree = "<group>"; };
+		D3E8679818FA988F00B6F843 /* EditTheUsualsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTheUsualsViewController.h; sourceTree = "<group>"; };
+		D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTheUsualsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +126,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D341EE0D191A555600192626 /* SystemConfiguration.framework in Frameworks */,
+				D341EE0B191A554700192626 /* StoreKit.framework in Frameworks */,
+				D341EE09191A553E00192626 /* Security.framework in Frameworks */,
+				D341EE07191A553600192626 /* QuartzCore.framework in Frameworks */,
+				D341EE05191A552E00192626 /* MobileCoreServices.framework in Frameworks */,
+				D341EE03191A552500192626 /* libz.dylib in Frameworks */,
+				D341EE0F191A55DF00192626 /* Parse.framework in Frameworks */,
+				D341EE01191A551800192626 /* CoreLocation.framework in Frameworks */,
 				D35CED9818F7D26F00A03E4C /* CoreGraphics.framework in Frameworks */,
+				D341EDFF191A550500192626 /* CFNetwork.framework in Frameworks */,
+				D341EDFD191A54F900192626 /* AudioToolbox.framework in Frameworks */,
 				D35CED9A18F7D26F00A03E4C /* UIKit.framework in Frameworks */,
 				D35CED9618F7D26F00A03E4C /* Foundation.framework in Frameworks */,
 			);
@@ -124,6 +177,16 @@
 		D35CED9418F7D26F00A03E4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D341EE0E191A55DF00192626 /* Parse.framework */,
+				D341EE0C191A555600192626 /* SystemConfiguration.framework */,
+				D341EE0A191A554700192626 /* StoreKit.framework */,
+				D341EE08191A553E00192626 /* Security.framework */,
+				D341EE06191A553600192626 /* QuartzCore.framework */,
+				D341EE04191A552E00192626 /* MobileCoreServices.framework */,
+				D341EE02191A552500192626 /* libz.dylib */,
+				D341EE00191A551800192626 /* CoreLocation.framework */,
+				D341EDFE191A550500192626 /* CFNetwork.framework */,
+				D341EDFC191A54F900192626 /* AudioToolbox.framework */,
 				D35CED9518F7D26F00A03E4C /* Foundation.framework */,
 				D35CED9718F7D26F00A03E4C /* CoreGraphics.framework */,
 				D35CED9918F7D26F00A03E4C /* UIKit.framework */,
@@ -139,11 +202,7 @@
 				D35CEDC618F7D28700A03E4C /* SearchEvents */,
 				D35CEDC518F7D27C00A03E4C /* TheUsuals */,
 				D35CEDC418F7D27600A03E4C /* MyEvents */,
-				D35CEDC818F7D2B300A03E4C /* HoopNetStoryboard.storyboard */,
-				D35CEDCA18F7D2E000A03E4C /* HoopNetViewController.h */,
-				D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */,
-				D35CEDA418F7D26F00A03E4C /* HoopNetAppDelegate.h */,
-				D35CEDA518F7D26F00A03E4C /* HoopNetAppDelegate.m */,
+				D399048C191A4D6E00FC3FD2 /* LoginSignUp */,
 				D35CEDA718F7D26F00A03E4C /* Images.xcassets */,
 				D35CED9C18F7D26F00A03E4C /* Supporting Files */,
 			);
@@ -192,9 +251,19 @@
 		D35CEDC518F7D27C00A03E4C /* TheUsuals */ = {
 			isa = PBXGroup;
 			children = (
+				D30D015A1900C01000BE8035 /* ethan.jpg */,
+				D30D01581900C00C00BE8035 /* vince.jpg */,
+				D30D01561900C00600BE8035 /* zack.jpg */,
+				D30D01541900BB4C00BE8035 /* david.jpg */,
 				D35CEDD118F7D3D200A03E4C /* TheUsualsStoryboard.storyboard */,
 				D35CEDDB18F7D40B00A03E4C /* TheUsualsViewController.h */,
 				D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */,
+				D3E8679818FA988F00B6F843 /* EditTheUsualsViewController.h */,
+				D3E8679918FA988F00B6F843 /* EditTheUsualsViewController.m */,
+				D30D01511900B52800BE8035 /* CustomCell.h */,
+				D30D01521900B52800BE8035 /* CustomCell.m */,
+				D3ACEC401904D9DE00C8CFEA /* AddContactViewController.h */,
+				D3ACEC411904D9DE00C8CFEA /* AddContactViewController.m */,
 			);
 			name = TheUsuals;
 			sourceTree = "<group>";
@@ -219,6 +288,22 @@
 				D35CEDD618F7D3F100A03E4C /* CreateEventsViewController.m */,
 			);
 			name = CreateEvents;
+			sourceTree = "<group>";
+		};
+		D399048C191A4D6E00FC3FD2 /* LoginSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				D35CEDC818F7D2B300A03E4C /* HoopNetStoryboard.storyboard */,
+				D35CEDCA18F7D2E000A03E4C /* HoopNetViewController.h */,
+				D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */,
+				D35CEDA418F7D26F00A03E4C /* HoopNetAppDelegate.h */,
+				D35CEDA518F7D26F00A03E4C /* HoopNetAppDelegate.m */,
+				D399048D191A4DFA00FC3FD2 /* LoginSignupViewController.h */,
+				D399048E191A4DFA00FC3FD2 /* LoginSignupViewController.m */,
+				D3990490191A4FC600FC3FD2 /* SignupViewController.h */,
+				D3990491191A4FC600FC3FD2 /* SignupViewController.m */,
+			);
+			name = LoginSignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,12 +382,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D30D01551900BB4C00BE8035 /* david.jpg in Resources */,
 				D35CEDC918F7D2B300A03E4C /* HoopNetStoryboard.storyboard in Resources */,
 				D35CEDD418F7D3DD00A03E4C /* MyEventsStoryboard.storyboard in Resources */,
+				D30D01591900C00C00BE8035 /* vince.jpg in Resources */,
 				D35CEDA018F7D26F00A03E4C /* InfoPlist.strings in Resources */,
+				D30D01571900C00600BE8035 /* zack.jpg in Resources */,
 				D35CEDCE18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard in Resources */,
 				D35CEDA818F7D26F00A03E4C /* Images.xcassets in Resources */,
 				D35CEDD218F7D3D200A03E4C /* TheUsualsStoryboard.storyboard in Resources */,
+				D30D015B1900C01000BE8035 /* ethan.jpg in Resources */,
 				D35CEDD018F7D3C400A03E4C /* SearchEventsStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,11 +414,16 @@
 				D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */,
 				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
 				CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */,
+				D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */,
 				D35CEDE018F7D41900A03E4C /* MyEventsViewController.m in Sources */,
+				D3ACEC421904D9DE00C8CFEA /* AddContactViewController.m in Sources */,
+				D3E8679A18FA988F00B6F843 /* EditTheUsualsViewController.m in Sources */,
+				D3990492191A4FC600FC3FD2 /* SignupViewController.m in Sources */,
 				D35CEDA218F7D26F00A03E4C /* main.m in Sources */,
 				D35CEDD718F7D3F100A03E4C /* CreateEventsViewController.m in Sources */,
 				D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */,
 				D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */,
+				D30D01531900B52800BE8035 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +540,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
 				INFOPLIST_FILE = "HoopNet/HoopNet-Info.plist";
@@ -461,6 +559,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HoopNet/HoopNet-Prefix.pch";
 				INFOPLIST_FILE = "HoopNet/HoopNet-Info.plist";

@@ -7,14 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <Parse/Parse.h>
 @interface HoopNetViewController : UIViewController
 
-
+/*
+ Button methods on home page leading to each of the four story boards
+ */
 -(IBAction)goToCreateEvents;
 -(IBAction)goToSearchEvents;
 -(IBAction)goToTheUsuals;
 -(IBAction)goToMyEvents;
+
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+
+
+
+-(IBAction)logOut:(id)sender;
+
 
 
 @end
