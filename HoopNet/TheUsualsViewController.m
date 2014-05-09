@@ -90,7 +90,6 @@
                 [query findObjectsInBackgroundWithBlock:^(NSArray *userObjects, NSError *error) {
                     if (!error) {
                         // The find succeeded.
-                        NSLog(@"Successfully retrieved %d scores.", userObjects.count);
                         // Do something with the found objects
                         for (PFObject *userObject in userObjects) {
                             NSString *displayName = userObject[@"dname"];
