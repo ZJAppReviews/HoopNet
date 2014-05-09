@@ -54,7 +54,13 @@
     [self presentViewController:myEventsVC animated:YES completion:nil];
 }
 
-
+-(void) toProfile:(id)sender{
+    UIStoryboard *myProfileSB = [UIStoryboard storyboardWithName:@"ProfileStoryboard" bundle:nil];
+    UIViewController *myProfileVC = [myProfileSB instantiateInitialViewController];
+    myProfileVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:myProfileVC animated:YES completion:nil];
+    
+}
 
 -(void) logOut:(id)sender {
     [PFUser logOut];
@@ -62,6 +68,8 @@
     //PFUser *currentUser = [PFUser currentUser]; // this will now be nil
     [self performSegueWithIdentifier:@"logoutSegue" sender:sender];
 }
+
+
 
 
 

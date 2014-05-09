@@ -18,12 +18,14 @@
 -(IBAction)goToTheUsuals;
 -(IBAction)goToMyEvents;
 
+
+
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
 
 
 -(IBAction)logOut:(id)sender;
-
+-(IBAction)toProfile:(id)sender;
 
 
 @end

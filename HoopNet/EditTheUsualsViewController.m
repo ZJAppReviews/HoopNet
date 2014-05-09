@@ -44,7 +44,7 @@
     /*
      Adds edit button at the top right of the EditTheUsualsView
      */
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
@@ -108,6 +108,8 @@
         [cinfo replaceObjectAtIndex:0 withObject:phone];
         [self.editPhoneTextField resignFirstResponder];
         [self.editNameTextField resignFirstResponder];
+        //NSString *phoneBeforeEdit = self.phoneLabel.text;
+        //NSString *nameBeforeEdit = self.nameLabel.text;
         self.nameLabel.text = name;
         self.phoneLabel.text = phone;
         self.phoneTextFieldText = phone;
@@ -118,11 +120,37 @@
         //Make changes to allFilteredSections results show from searchBar filter
         NSString *searchText = theUsualsVC.searchBar.text;
         [theUsualsVC searchBar:theUsualsVC.searchBar textDidChange: searchText];
+        
+        
     }
 }
 
 
 
+
+//////// This is a query to update editing to the server and make it persistent
+
+/*
+ 
+ if(![nameBeforeEdit isEqualToString:name] || ![phoneBeforeEdit isEqualToString:phone]) {
+ PFQuery *query= [PFUser query];
+ [query whereKey:@"username" equalTo:cleanDisplayName];
+ [query findObjectsInBackgroundWithBlock:^(NSArray *userObjects, NSError *error) {
+ if (!error) {
+ for (PFObject *userObject in userObjects) {
+ NSLog(@"Successfully retrieved %d scores.", userObjects.count);
+ [userObject setObject:name forKey:@"dname"];
+ [userObject setObject:phone forKey:@"phone"];
+ }
+ 
+ } else {
+ NSLog(@"Error: %@ %@", error, [error userInfo]);
+ }
+ }];
+ }
+ */
+
+/////////////////
 /*
 #pragma mark - Navigation
 

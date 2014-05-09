@@ -18,6 +18,8 @@
 		D30D01571900C00600BE8035 /* zack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01561900C00600BE8035 /* zack.jpg */; };
 		D30D01591900C00C00BE8035 /* vince.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01581900C00C00BE8035 /* vince.jpg */; };
 		D30D015B1900C01000BE8035 /* ethan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D015A1900C01000BE8035 /* ethan.jpg */; };
+		D32E4681191CC14E005C74C1 /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D32E4680191CC14E005C74C1 /* ProfileStoryboard.storyboard */; };
+		D32E4684191CC164005C74C1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D32E4683191CC164005C74C1 /* ProfileViewController.m */; };
 		D341EDFD191A54F900192626 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EDFC191A54F900192626 /* AudioToolbox.framework */; };
 		D341EDFF191A550500192626 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EDFE191A550500192626 /* CFNetwork.framework */; };
 		D341EE01191A551800192626 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D341EE00191A551800192626 /* CoreLocation.framework */; };
@@ -81,6 +83,9 @@
 		D30D01561900C00600BE8035 /* zack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zack.jpg; sourceTree = "<group>"; };
 		D30D01581900C00C00BE8035 /* vince.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vince.jpg; sourceTree = "<group>"; };
 		D30D015A1900C01000BE8035 /* ethan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ethan.jpg; sourceTree = "<group>"; };
+		D32E4680191CC14E005C74C1 /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		D32E4682191CC164005C74C1 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		D32E4683191CC164005C74C1 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		D341EDFC191A54F900192626 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D341EDFE191A550500192626 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		D341EE00191A551800192626 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -164,6 +169,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D32E467F191CC102005C74C1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D32E4680191CC14E005C74C1 /* ProfileStoryboard.storyboard */,
+				D32E4682191CC164005C74C1 /* ProfileViewController.h */,
+				D32E4683191CC164005C74C1 /* ProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		D35CED8918F7D26F00A03E4C = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +222,7 @@
 		D35CED9B18F7D26F00A03E4C /* HoopNet */ = {
 			isa = PBXGroup;
 			children = (
+				D32E467F191CC102005C74C1 /* Profile */,
 				CBCFB5D9191B69E800F26960 /* Event.h */,
 				CBCFB5DA191B69E800F26960 /* Event.m */,
 				D35CEDC718F7D28F00A03E4C /* CreateEvents */,
@@ -406,6 +422,7 @@
 				D35CEDCE18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard in Resources */,
 				D35CEDA818F7D26F00A03E4C /* Images.xcassets in Resources */,
 				D35CEDD218F7D3D200A03E4C /* TheUsualsStoryboard.storyboard in Resources */,
+				D32E4681191CC14E005C74C1 /* ProfileStoryboard.storyboard in Resources */,
 				D30D015B1900C01000BE8035 /* ethan.jpg in Resources */,
 				D35CEDD018F7D3C400A03E4C /* SearchEventsStoryboard.storyboard in Resources */,
 			);
@@ -433,6 +450,7 @@
 				CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */,
 				D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */,
 				D3ACEC421904D9DE00C8CFEA /* AddContactViewController.m in Sources */,
+				D32E4684191CC164005C74C1 /* ProfileViewController.m in Sources */,
 				D3E8679A18FA988F00B6F843 /* EditTheUsualsViewController.m in Sources */,
 				CB12BFB9191CC422000A588A /* ViewEventsViewController.m in Sources */,
 				D3990492191A4FC600FC3FD2 /* SignupViewController.m in Sources */,
