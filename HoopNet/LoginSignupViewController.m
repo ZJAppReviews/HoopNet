@@ -62,9 +62,6 @@
     }];
 }
 
-
-
-
 -(void) goToSignUp:(id)sender
 {
     [self performSegueWithIdentifier:@"signupSegue" sender:sender];

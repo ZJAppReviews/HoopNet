@@ -51,7 +51,7 @@
     self.navigationItem.rightBarButtonItem  = addButton;
     
     
-    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeBUttonPressed:)];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeButtonPressed:)];
     self.navigationItem.leftBarButtonItem = homeButton;
     
     
@@ -185,7 +185,10 @@
 }
 
 
-- (IBAction) homeBUttonPressed:(id)sender {
+- (IBAction) homeButtonPressed:(id)sender {
+    if (self.tableView.editing) {
+        [self.tableView setEditing:NO];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
