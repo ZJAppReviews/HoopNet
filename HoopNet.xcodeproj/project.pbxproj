@@ -11,6 +11,8 @@
 		CB12BFBC191CC718000A588A /* EventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFBB191CC718000A588A /* EventsTableViewCell.m */; };
 		CB12BFC1191CD981000A588A /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFC0191CD981000A588A /* MyEventsViewController.m */; };
 		CB12BFC2191CDB2D000A588A /* HoopNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */; };
+		CB12BFC5191D075B000A588A /* InviteUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFC4191D075B000A588A /* InviteUsersViewController.m */; };
+		CB12BFC8191D0F71000A588A /* InviteUsualsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFC7191D0F71000A588A /* InviteUsualsTableViewCell.m */; };
 		CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */; };
 		CBCFB5DB191B69E800F26960 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DA191B69E800F26960 /* Event.m */; };
 		CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */; };
@@ -73,6 +75,10 @@
 		CB12BFBB191CC718000A588A /* EventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewCell.m; sourceTree = "<group>"; };
 		CB12BFBF191CD981000A588A /* MyEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsViewController.h; sourceTree = "<group>"; };
 		CB12BFC0191CD981000A588A /* MyEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsViewController.m; sourceTree = "<group>"; };
+		CB12BFC3191D075B000A588A /* InviteUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteUsersViewController.h; sourceTree = "<group>"; };
+		CB12BFC4191D075B000A588A /* InviteUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteUsersViewController.m; sourceTree = "<group>"; };
+		CB12BFC6191D0F71000A588A /* InviteUsualsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteUsualsTableViewCell.h; sourceTree = "<group>"; };
+		CB12BFC7191D0F71000A588A /* InviteUsualsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteUsualsTableViewCell.m; sourceTree = "<group>"; };
 		CB8BC5CA191B3C4B00EA2BED /* TheUsualsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUsualsCustomCell.h; sourceTree = SOURCE_ROOT; };
 		CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsCustomCell.m; sourceTree = SOURCE_ROOT; };
 		CBCFB5D9191B69E800F26960 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -317,6 +323,10 @@
 				D35CEDCD18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard */,
 				D35CEDD518F7D3F100A03E4C /* CreateEventsViewController.h */,
 				D35CEDD618F7D3F100A03E4C /* CreateEventsViewController.m */,
+				CB12BFC3191D075B000A588A /* InviteUsersViewController.h */,
+				CB12BFC4191D075B000A588A /* InviteUsersViewController.m */,
+				CB12BFC6191D0F71000A588A /* InviteUsualsTableViewCell.h */,
+				CB12BFC7191D0F71000A588A /* InviteUsualsTableViewCell.m */,
 			);
 			name = CreateEvents;
 			sourceTree = "<group>";
@@ -449,6 +459,7 @@
 				CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */,
 				CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */,
 				D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */,
+				CB12BFC8191D0F71000A588A /* InviteUsualsTableViewCell.m in Sources */,
 				D3ACEC421904D9DE00C8CFEA /* AddContactViewController.m in Sources */,
 				D32E4684191CC164005C74C1 /* ProfileViewController.m in Sources */,
 				D3E8679A18FA988F00B6F843 /* EditTheUsualsViewController.m in Sources */,
@@ -459,6 +470,7 @@
 				CBCFB5DB191B69E800F26960 /* Event.m in Sources */,
 				CB12BFBC191CC718000A588A /* EventsTableViewCell.m in Sources */,
 				D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */,
+				CB12BFC5191D075B000A588A /* InviteUsersViewController.m in Sources */,
 				D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

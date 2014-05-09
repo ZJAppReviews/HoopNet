@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CreateEventsViewController : UIViewController
+@interface CreateEventsViewController : UIViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField* eventNameField;
+
+@property (weak, nonatomic) IBOutlet UITextField* eventLocationField;
+
+@property (weak, nonatomic) IBOutlet UIDatePicker* eventDatePicker;
+
+-(IBAction)checkAndForward:(id)sender;
 
 @end
