@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditTheUsualsViewController : UIViewController
+@interface EditTheUsualsViewController : UIViewController <UITextFieldDelegate>
 
 /*
  These are the objects we see after clicking on a table view cell in The Usuals
