@@ -8,6 +8,7 @@
 
 #import "InviteUsersViewController.h"
 #import "InviteUsualsTableViewCell.h"
+#import "HoopNetViewController.h"
 
 @interface InviteUsersViewController ()
 
@@ -30,9 +31,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(backButtonPressed:)];
+    self.navigationItem.leftBarButtonItem  = backButton;
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed:)];
+    self.navigationItem.rightBarButtonItem  = doneButton;
 }
 
+- (IBAction) backButtonPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+- (IBAction) doneButtonPressed:(id)sender {
+    //[self addEventQuery];
+    // try to go to myEventsPage
+    //HoopNetViewController* parentController = (HoopNetViewController*)[[self parentViewController] parentViewController];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
