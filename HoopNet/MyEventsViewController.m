@@ -33,13 +33,13 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.eventArray = [[NSMutableArray alloc] init];
-    self.filteredEventArray = [[NSMutableArray alloc] init];
+    self.myEventArray = [[NSMutableArray alloc] init];
+    self.myFilteredEventArray = [[NSMutableArray alloc] init];
     
     isFiltered = NO;
     
     
-    //Starting my query to add contact
+    //Starting my query to add my events
     PFUser *currentUser = [PFUser currentUser];
     NSString *currentUserName = currentUser[@"username"];
     PFQuery *myEventsQuery = [PFQuery queryWithClassName:@"Events"];
@@ -47,6 +47,7 @@
     [myEventsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
+                
                 NSDate *when = object[@"When"];
                 NSString *eventTitle = object[@"Name"];
                 NSString *organizer = object[@"Organizer"];
@@ -55,7 +56,7 @@
                 //NSMutableArray *invited = object[@"Invited"];
                 
                 Event *curEvent = [[Event alloc] initWithName:eventTitle date:when location:where organizer:organizer];
-                [self.eventArray addObject:curEvent];
+                [self.myEventArray addObject:curEvent];
                 [self.tableView reloadData];
                 
             }
@@ -82,6 +83,46 @@
 }
 
 /*
+
+- (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView {
+    return 2;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *retString;
+    if (section == 0) {
+        retString = @"Committed";
+    }else {
+        retString = @"Maybies";
+    }
+    return retString;
+}
+
+- (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection:(NSInteger)section {
+    NSUInteger numRows = 0;
+    if(section == 0) {
+        if (isFiltered) {
+            numRows = 0;
+        }else {
+            numRows = 0;
+        }
+    }else {
+        if (isFiltered) {
+            numRows = 0;
+        }else {
+            numRows = 0;
+        }
+    }
+    
+    
+    return numRows;
+}
+*/
+
+
+/*
  Swipe Deleting a cell
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,24 +137,24 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Event* eventToDelete;
         if (isFiltered) {
-            eventToDelete = [self.filteredEventArray objectAtIndex:indexPath.row];
+            eventToDelete = [self.myFilteredEventArray objectAtIndex:indexPath.row];
             oldWhen = eventToDelete.date;
             oldEventTitle = eventToDelete.name;
             oldOrganizer = eventToDelete.organizer;
             oldWhere = eventToDelete.location;
             //NSMutableArray *oldGoing = eventToDelete.going;
             //NSMutableArray *oldInvited = eventToDelete.invited;
-            [self.eventArray removeObject:eventToDelete];
-            [self.filteredEventArray removeObject:eventToDelete];
+            [self.myEventArray removeObject:eventToDelete];
+            [self.myFilteredEventArray removeObject:eventToDelete];
         } else {
-            eventToDelete = [self.eventArray objectAtIndex:indexPath.row];
+            eventToDelete = [self.myEventArray objectAtIndex:indexPath.row];
             oldWhen = eventToDelete.date;
             oldEventTitle = eventToDelete.name;
             oldOrganizer = eventToDelete.organizer;
             oldWhere = eventToDelete.location;
             //NSMutableArray *oldGoing = eventToDelete.going;
             //NSMutableArray *oldInvited = eventToDelete.invited;
-            [self.eventArray removeObject:eventToDelete];
+            [self.myEventArray removeObject:eventToDelete];
         }
         
         
