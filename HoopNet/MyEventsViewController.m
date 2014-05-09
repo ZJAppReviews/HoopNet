@@ -36,6 +36,16 @@
 }
 
 /*
+ takes you back to the home page
+ */
+- (IBAction) homeButtonPressed:(id)sender {
+    if (self.tableView.editing) {
+        [self.tableView setEditing:NO];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/*
  Swipe Deleting a cell
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,17 +65,5 @@
         //add code here for when you hit delete
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
