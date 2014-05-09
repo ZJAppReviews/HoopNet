@@ -32,6 +32,8 @@
     // Do any additional setup after loading the view.
 }
 
+
+
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     InviteUsualsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"inviteUsualsCell"];
@@ -56,8 +58,17 @@
         NSMutableArray *cellInfo = [self.contactInfo objectForKey:[nameArray objectAtIndex:1]];
         cell.userImageView.image = [UIImage imageNamed:[cellInfo objectAtIndex:1]];
     }
+    
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Add switch logic here
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
