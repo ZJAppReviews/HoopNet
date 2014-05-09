@@ -44,7 +44,7 @@
 }
 
 - (IBAction) doneButtonPressed:(id)sender {
-    //[self addEventQuery];
+    [self addEventQuery];
     // try to go to myEventsPage
     //HoopNetViewController* parentController = (HoopNetViewController*)[[self parentViewController] parentViewController];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -85,17 +85,31 @@
 }
 
 -(void) addEventQuery {
+    NSMutableArray* selectedNames = [[NSMutableArray alloc] init];
+    NSMutableArray* going = [[NSMutableArray alloc]init];
+    for (int section = 0; section < [self.tableView numberOfSections]; section++) {
+        for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
+            NSIndexPath* cellPath = [NSIndexPath indexPathForRow:row inSection:section];
+            InviteUsualsTableViewCell* cell = (InviteUsualsTableViewCell*)[self.tableView cellForRowAtIndexPath:cellPath];
+            if (cell.willInvite.on) {
+                [selectedNames addObject:cell.userName.text];
+            }
+        }
+    }
+    
     //Starting my query to add my events
     PFUser *currentUser = [PFUser currentUser];
     NSString *currentUserName = currentUser[@"username"];
+    [going addObject:currentUserName];
     //Object attributes
     PFObject *newEvent = [[PFObject alloc] initWithClassName:@"Events"];
     [newEvent setObject:self.eventDate forKey:@"When"];
     [newEvent setObject:self.eventLocation forKey:@"Where"];
     [newEvent setObject:self.eventName forKey:@"Name"];
     [newEvent setObject:currentUserName forKey:@"Organizer"];
+    [newEvent setObject:selectedNames forKey:@"Invited"];
+    [newEvent setObject:going forKey:@"Going"];
     [newEvent saveInBackground];
-    
     
     //PFQuery *addEvent = [PFQuery queryWithClassName:@"Events"];
 }

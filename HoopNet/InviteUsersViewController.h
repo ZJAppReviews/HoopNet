@@ -12,11 +12,11 @@
 
 @interface InviteUsersViewController : TheUsualsViewController
 
-@property (weak, nonatomic) NSString* eventName;
+@property (strong, nonatomic) NSString* eventName;
 
-@property (weak, nonatomic) NSString* eventLocation;
+@property (strong, nonatomic) NSString* eventLocation;
 
-@property (weak, nonatomic) NSDate* eventDate;
+@property (strong, nonatomic) NSDate* eventDate;
 
 
 
