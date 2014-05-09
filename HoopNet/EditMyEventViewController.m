@@ -30,6 +30,7 @@
     if (self.currentEvent == nil) {
         
     } else {
+        self.nameLabel.text = self.currentEvent.name;
         self.whereLabel.text = self.currentEvent.location;
         NSDate* dateInfo = self.currentEvent.date;
     }
