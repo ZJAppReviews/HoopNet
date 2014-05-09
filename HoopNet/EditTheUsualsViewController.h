@@ -33,4 +33,7 @@
 @property (weak, nonatomic) NSString *phoneTextFieldText;
 
 
+//@property NSString *nameBeforeEdit;
+//@property NSString *phoneBeforeEdit;
+
 @end

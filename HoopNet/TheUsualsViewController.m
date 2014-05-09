@@ -123,14 +123,14 @@
     
     }];
     
-    //////////////
+
     
     
     
     
     
     
-    
+    //HARD CODED DATA
     
     /*
      TODO: Make request to server in order to fill up container
@@ -442,6 +442,11 @@
                     //[self loadObjects];
                 }
                 
+                [self refreshAllSections];
+                /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again, you're the best past david. */
+                [self.tableView reloadData];
+                //add code here for when you hit delete
+                
                 
             } else {
                 
@@ -450,10 +455,7 @@
             
         }];
         
-        [self refreshAllSections];
-        /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again, you're the best past david. */
-        [self.tableView reloadData];
-        //add code here for when you hit delete
+        
         
        
     }
