@@ -88,28 +88,47 @@
         NSString *previousName = self.nameLabel.text;
         Event* eventToUpdate;
         Event *oE;
+        int section = -1;
         int index = -1;
-        for(Event *event in eventViewController.eventArray) {
+        for(Event *event in eventViewController.goingEventsArray) {
             if([event.name isEqual:previousName]) {
                 //Replace oldname with new name in nameArrays
                 eventToUpdate = event;
                 oE = [[Event alloc] initWithName:event.name date:event.date location:event.location organizer:event.organizer];
-                index = [eventViewController.eventArray indexOfObject:eventToUpdate];
+                index = [eventViewController.goingEventsArray indexOfObject:eventToUpdate];
+                section = 0;
                 break;
             }
         }
-        if (![self.editNameTextField.text  isEqual: @""]) {
+        if (index == -1) {
+            for(Event *event in eventViewController.invitedEventsArray) {
+                if([event.name isEqual:previousName]) {
+                    //Replace oldname with new name in nameArrays
+                    eventToUpdate = event;
+                    oE = [[Event alloc] initWithName:event.name date:event.date location:event.location organizer:event.organizer];
+                    index = [eventViewController.invitedEventsArray indexOfObject:eventToUpdate];
+                    section = 1;
+                    break;
+                }
+            }
+        }
+        
+        if (![self.editNameTextField.text isEqual: @""]) {
             eventToUpdate.name = self.editNameTextField.text;
             self.nameLabel.text = self.editNameTextField.text;
         }
-        if (![self.editLocationTextField.text  isEqual: @""]) {
+        if (![self.editLocationTextField.text isEqual: @""]) {
             eventToUpdate.location = self.editLocationTextField.text;
             self.locationLabel.text = self.editLocationTextField.text;
         }
         NSDate* newDate = self.editWhenPicker.date;
         eventToUpdate.date = newDate;
         
-        [eventViewController.eventArray replaceObjectAtIndex:index withObject:eventToUpdate];
+        if (section == 0) {
+            [eventViewController.goingEventsArray replaceObjectAtIndex:index withObject:eventToUpdate];
+        } else {
+            [eventViewController.invitedEventsArray replaceObjectAtIndex:index withObject:eventToUpdate];
+        }
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         dateFormatter.dateFormat = @"MM/dd/yy";
@@ -127,8 +146,6 @@
         if (![oE.date isEqual:eventToUpdate.date] || ![oE.name isEqual:eventToUpdate.name] || ![oE.organizer isEqual:eventToUpdate.organizer] || ![oE.location isEqual:eventToUpdate.location]) {
             didChange = YES;
         }
-        
-        
         
         if(didChange) {
             
