@@ -32,13 +32,13 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    self.eventArray = [[NSMutableArray alloc] init];
-    self.filteredEventArray = [[NSMutableArray alloc] init];
+    self.myEventArray = [[NSMutableArray alloc] init];
+    self.myFilteredEventArray = [[NSMutableArray alloc] init];
     
     isFiltered = NO;
     
     
-    //Starting my query to add contact
+    //Starting my query to add my events
     PFUser *currentUser = [PFUser currentUser];
     NSString *currentUserName = currentUser[@"username"];
     PFQuery *myEventsQuery = [PFQuery queryWithClassName:@"Events"];
@@ -46,15 +46,16 @@
     [myEventsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
+                
                 NSDate *when = object[@"When"];
                 NSString *eventTitle = object[@"Name"];
                 NSString *organizer = object[@"Organizer"];
                 NSString *where = object[@"Where"];
-                NSMutableArray *going = object[@"Going"];
-                NSMutableArray *inited = object[@"Invited"];
+                //NSMutableArray *going = object[@"Going"];
+                //NSMutableArray *invited = object[@"Invited"];
                 
                 Event *curEvent = [[Event alloc] initWithName:eventTitle date:when location:where organizer:organizer];
-                [self.eventArray addObject:curEvent];
+                [self.myEventArray addObject:curEvent];
                 [self.tableView reloadData];
                 
             }
@@ -81,23 +82,122 @@
 }
 
 /*
+
+- (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView {
+    return 2;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *retString;
+    if (section == 0) {
+        retString = @"Committed";
+    }else {
+        retString = @"Maybies";
+    }
+    return retString;
+}
+
+- (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection:(NSInteger)section {
+    NSUInteger numRows = 0;
+    if(section == 0) {
+        if (isFiltered) {
+            numRows = 0;
+        }else {
+            numRows = 0;
+        }
+    }else {
+        if (isFiltered) {
+            numRows = 0;
+        }else {
+            numRows = 0;
+        }
+    }
+    
+    
+    return numRows;
+}
+*/
+
+
+/*
  Swipe Deleting a cell
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDate *oldWhen;
+    NSString *oldEventTitle;
+    NSString *oldOrganizer;
+    NSString *oldWhere;
+    //NSMutableArray *oldGoing;
+    //NSMutableArray *oldInvited;
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Event* eventToDelete;
         if (isFiltered) {
-            eventToDelete = [self.filteredEventArray objectAtIndex:indexPath.row];
-            [self.eventArray removeObject:eventToDelete];
-            [self.filteredEventArray removeObject:eventToDelete];
+            eventToDelete = [self.myFilteredEventArray objectAtIndex:indexPath.row];
+            oldWhen = eventToDelete.date;
+            oldEventTitle = eventToDelete.name;
+            oldOrganizer = eventToDelete.organizer;
+            oldWhere = eventToDelete.location;
+            //NSMutableArray *oldGoing = eventToDelete.going;
+            //NSMutableArray *oldInvited = eventToDelete.invited;
+            [self.myEventArray removeObject:eventToDelete];
+            [self.myFilteredEventArray removeObject:eventToDelete];
         } else {
-            eventToDelete = [self.eventArray objectAtIndex:indexPath.row];
-            [self.eventArray removeObject:eventToDelete];
+            eventToDelete = [self.myEventArray objectAtIndex:indexPath.row];
+            oldWhen = eventToDelete.date;
+            oldEventTitle = eventToDelete.name;
+            oldOrganizer = eventToDelete.organizer;
+            oldWhere = eventToDelete.location;
+            //NSMutableArray *oldGoing = eventToDelete.going;
+            //NSMutableArray *oldInvited = eventToDelete.invited;
+            [self.myEventArray removeObject:eventToDelete];
         }
         
-        /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again*/
-        [self.tableView reloadData];
-        //add code here for when you hit delete
+        
+        
+        //Starting my query to remove myself from an event
+        PFUser *currentUser = [PFUser currentUser];
+        NSString *currentUserName = currentUser[@"username"];
+        PFQuery *myEventsQuery = [PFQuery queryWithClassName:@"Events"];
+        [myEventsQuery whereKey:@"Going" equalTo:currentUserName];
+        [myEventsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                for (PFObject *object in objects) {
+                    NSDate *when = object[@"When"];
+                    NSString *eventTitle = object[@"Name"];
+                    NSString *organizer = object[@"Organizer"];
+                    NSString *where = object[@"Where"];
+                    //NSMutableArray *going = object[@"Going"];
+                    //NSMutableArray *inited = object[@"Invited"];
+                    if ([oldWhen isEqual:when] && [oldEventTitle isEqual:eventTitle] && [oldOrganizer isEqual:organizer] && [oldWhere isEqual:where]) {
+                        NSMutableArray *going = object[@"Going"];
+                        NSMutableArray *invited = object[@"Invited"];
+                        
+                        //Edit invited list
+                        [invited addObject:currentUserName];
+                        [object setObject:invited forKey:@"Invited"];
+                    
+                        //Edit going list
+                        [going removeObject:currentUserName];
+                        [object setObject:going forKey:@"Going"];
+                        
+                        //Save to database and reload UI
+                        [object saveInBackground];
+                        [self.tableView reloadData];
+                    }
+                    break;
+                }
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+            
+        }];
+        
+        
     }
 }
 

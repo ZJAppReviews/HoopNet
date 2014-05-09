@@ -27,6 +27,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.searchBar.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -34,7 +36,46 @@
     self.eventArray = [[NSMutableArray alloc] init];
     self.filteredEventArray = [[NSMutableArray alloc] init];
     
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
+    self.navigationItem.rightBarButtonItem  = addButton;
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = homeButton;
+    
     isFiltered = NO;
+    
+    
+    //Starting my query to add contact
+    PFQuery *myEventsQuery = [PFQuery queryWithClassName:@"Events"];
+    //THIS IS HOW YOU CHANGE HOW MANY SEARCH RESULTS COME UP
+    [myEventsQuery setLimit:1000];
+    [myEventsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSDate *when = object[@"When"];
+                NSString *eventTitle = object[@"Name"];
+                NSString *organizer = object[@"Organizer"];
+                NSString *where = object[@"Where"];
+                //NSMutableArray *going = object[@"Going"];
+                //NSMutableArray *invited = object[@"Invited"];
+                
+                Event *curEvent = [[Event alloc] initWithName:eventTitle date:when location:where organizer:organizer];
+                [self.eventArray addObject:curEvent];
+                [self.tableView reloadData];
+                
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        
+    }];
+    
+    
+    
+    
+    /*
+    
     
     //pre-seed the datasource
     NSDate* fakeDate = [[NSDate alloc] init];
@@ -47,12 +88,8 @@
     [self.eventArray addObject:event1];
     [self.eventArray addObject:event2];
     [self.eventArray addObject:event3];
+    */
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
-    self.navigationItem.rightBarButtonItem  = addButton;
-    
-    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeButtonPressed:)];
-    self.navigationItem.leftBarButtonItem = homeButton;
 }
 
 /*

@@ -10,4 +10,10 @@
 
 @interface MyEventsViewController : SearchEventsViewController
 
+
+
+@property NSMutableArray *myEventArray;
+@property NSMutableArray *myFilteredEventArray;
+
+
 @end
