@@ -197,7 +197,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="nameLabel" destination="STT-bi-yg7" id="iYj-1k-gjJ"/>
                         <outlet property="organizerLabel" destination="b7K-pQ-tPk" id="YsN-aF-tS5"/>
                         <outlet property="timeLabel" destination="udl-hc-shW" id="EMO-bo-cxi"/>
-                        <outlet property="whereLabel" destination="2PR-Vy-BWc" id="zKy-8o-dOi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AeP-4P-V6t" userLabel="First Responder" sceneMemberID="firstResponder"/>

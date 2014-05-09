@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <Parse/Parse.h>
+#import <Parse/Parse.h>
 
 #import "Event.h"
 
-@interface EditMyEventViewController : UIViewController
+@interface EditMyEventViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) Event* currentEvent;
 

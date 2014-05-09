@@ -41,11 +41,11 @@
     
     //pre-seed the datasource
     NSDate* fakeDate = [[NSDate alloc] init];
-    //Event *event1 = [[Event alloc] initWithName:@"event1" date:fakeDate location:@"place1" organizer:[PFUser currentUser].username];
-    //Event *event2 = [[Event alloc] initWithName:@"event2" date:fakeDate location:@"place2" organizer:[PFUser currentUser].username];
+    Event *event1 = [[Event alloc] initWithName:@"event1" date:fakeDate location:@"place1" organizer:[PFUser currentUser].username];
+    Event *event2 = [[Event alloc] initWithName:@"event2" date:fakeDate location:@"place2" organizer:[PFUser currentUser].username];
     
-    Event *event1 = [[Event alloc] initWithName:@"event1" date:fakeDate location:@"place1" organizer:@"vince"];
-    Event *event2 = [[Event alloc] initWithName:@"event2" date:fakeDate location:@"place2" organizer:@"vince"];
+    //Event *event1 = [[Event alloc] initWithName:@"event1" date:fakeDate location:@"place1" organizer:@"vince"];
+    //Event *event2 = [[Event alloc] initWithName:@"event2" date:fakeDate location:@"place2" organizer:@"vince"];
     [self.eventArray addObject:event1];
     [self.eventArray addObject:event2];
     NSLog(@"events just added to EventArray");

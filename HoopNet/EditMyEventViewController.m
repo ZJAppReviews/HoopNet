@@ -49,12 +49,17 @@
         [self.editLocationTextField setHidden:YES];
         [self.editWhenPicker setHidden:YES];
         
+        self.editNameTextField.delegate = self;
+        self.editLocationTextField.delegate = self;
+        
         //Make it possible to edit the event if you are the organizer
-        //if ([PFUser currentUser].username == self.currentEvent.organizer) {
+        if ([PFUser currentUser].username == self.currentEvent.organizer) {
             // place the edit button
-        //    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(setEditing:)];
-        //    self.navigationItem.rightBarButtonItem  = editButton;
-        //}
+            self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+            //UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(setEditing:)];
+            //self.navigationItem.rightBarButtonItem  = editButton;
+        }
     }
 }
 
@@ -72,6 +77,7 @@
         [self.timeLabel setHidden:YES];
         [self.editNameTextField setHidden:NO];
         [self.editLocationTextField setHidden:NO];
+        [self.editWhenPicker setHidden:NO];
         
         self.editNameTextField.text = self.nameLabel.text;
         self.editLocationTextField.text = self.locationLabel.text;
@@ -79,9 +85,12 @@
     } else {
         [self.nameLabel setHidden:NO];
         [self.locationLabel setHidden:NO];
+        [self.dateLabel setHidden:NO];
+        [self.timeLabel setHidden:NO];
         [self.editNameTextField setHidden:YES];
         [self.editLocationTextField setHidden:YES];
-        
+        [self.editWhenPicker setHidden:YES];
+
         //Unwinding segue
         MyEventsViewController* eventViewController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
         
@@ -117,10 +126,16 @@
         NSString *timeString = [timeFormatter stringFromDate: newDate];
         self.timeLabel.text = timeString;
         
-        [eventViewController refreshAllSections];
+        NSLog(@"about to call");
+        [eventViewController.tableView reloadData];
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.editNameTextField resignFirstResponder];
+    [self.editLocationTextField resignFirstResponder];
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning
 {
