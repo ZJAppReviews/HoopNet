@@ -51,8 +51,8 @@
                 NSString *eventTitle = object[@"Name"];
                 NSString *organizer = object[@"Organizer"];
                 NSString *where = object[@"Where"];
-                NSMutableArray *going = object[@"Going"];
-                NSMutableArray *inited = object[@"Invited"];
+                //NSMutableArray *going = object[@"Going"];
+                //NSMutableArray *invited = object[@"Invited"];
                 
                 Event *curEvent = [[Event alloc] initWithName:eventTitle date:when location:where organizer:organizer];
                 [self.eventArray addObject:curEvent];
