@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomEventCell" rowHeight="85" id="KPz-rc-HXq" customClass="MyEventsTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomMyEventCell" rowHeight="85" id="KPz-rc-HXq" customClass="MyEventsTableViewCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KPz-rc-HXq" id="9bk-Ly-ffO">
@@ -68,9 +68,6 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="u5a-Pd-qGO" id="fUa-RU-W9P"/>
-                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -87,7 +84,6 @@
                 <searchDisplayController id="eVA-no-JZD">
                     <connections>
                         <outlet property="delegate" destination="u5a-Pd-qGO" id="Ha6-3S-12K"/>
-                        <outlet property="searchBar" destination="Di8-HG-6Gq" id="B9w-qE-IAF"/>
                         <outlet property="searchContentsController" destination="u5a-Pd-qGO" id="2UT-go-W1j"/>
                         <outlet property="searchResultsDataSource" destination="u5a-Pd-qGO" id="tCH-PF-Eti"/>
                         <outlet property="searchResultsDelegate" destination="u5a-Pd-qGO" id="wHy-yH-qUe"/>

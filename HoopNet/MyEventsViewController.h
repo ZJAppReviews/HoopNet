@@ -7,20 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface MyEventsViewController : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
-
-/*
- allSections and filtered sections contain information displayed in the table view
- the way we know which dictionary to use depends on the Bool isFiltered
- */
-@property NSMutableDictionary *allSections;
-@property NSMutableDictionary *allFilteredSections;
 
 /*
  nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs
  */
 @property NSMutableArray *eventArray;
+@property NSMutableArray *filteredEventArray;
 
 /*
  List of friends
