@@ -40,8 +40,11 @@
         self.editNameTextField.delegate = self;
         self.editLocationTextField.delegate = self;
         
+        //NSString *org = self.currentEvent.organizer;
+        //NSString *currentUser = [PFUser currentUser].username;
         //Make it possible to edit the event if you are the organizer
-        if ([PFUser currentUser].username == self.currentEvent.organizer) {
+        if ([[PFUser currentUser].username isEqualToString: self.currentEvent.organizer]) {
+     
             self.navigationItem.rightBarButtonItem = self.editButtonItem;
         }
     }

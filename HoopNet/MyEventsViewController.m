@@ -75,20 +75,79 @@
  Swipe Deleting a cell
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDate *oldWhen;
+    NSString *oldEventTitle;
+    NSString *oldOrganizer;
+    NSString *oldWhere;
+    //NSMutableArray *oldGoing;
+    //NSMutableArray *oldInvited;
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Event* eventToDelete;
         if (isFiltered) {
             eventToDelete = [self.filteredEventArray objectAtIndex:indexPath.row];
+            oldWhen = eventToDelete.date;
+            oldEventTitle = eventToDelete.name;
+            oldOrganizer = eventToDelete.organizer;
+            oldWhere = eventToDelete.location;
+            //NSMutableArray *oldGoing = eventToDelete.going;
+            //NSMutableArray *oldInvited = eventToDelete.invited;
             [self.eventArray removeObject:eventToDelete];
             [self.filteredEventArray removeObject:eventToDelete];
         } else {
             eventToDelete = [self.eventArray objectAtIndex:indexPath.row];
+            oldWhen = eventToDelete.date;
+            oldEventTitle = eventToDelete.name;
+            oldOrganizer = eventToDelete.organizer;
+            oldWhere = eventToDelete.location;
+            //NSMutableArray *oldGoing = eventToDelete.going;
+            //NSMutableArray *oldInvited = eventToDelete.invited;
             [self.eventArray removeObject:eventToDelete];
         }
         
-        /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again*/
-        [self.tableView reloadData];
-        //add code here for when you hit delete
+        
+        
+        //Starting my query to remove myself from an event
+        PFUser *currentUser = [PFUser currentUser];
+        NSString *currentUserName = currentUser[@"username"];
+        PFQuery *myEventsQuery = [PFQuery queryWithClassName:@"Events"];
+        [myEventsQuery whereKey:@"Going" equalTo:currentUserName];
+        [myEventsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                for (PFObject *object in objects) {
+                    NSDate *when = object[@"When"];
+                    NSString *eventTitle = object[@"Name"];
+                    NSString *organizer = object[@"Organizer"];
+                    NSString *where = object[@"Where"];
+                    //NSMutableArray *going = object[@"Going"];
+                    //NSMutableArray *inited = object[@"Invited"];
+                    if ([oldWhen isEqual:when] && [oldEventTitle isEqual:eventTitle] && [oldOrganizer isEqual:organizer] && [oldWhere isEqual:where]) {
+                        NSMutableArray *going = object[@"Going"];
+                        NSMutableArray *invited = object[@"Invited"];
+                        
+                        //Edit invited list
+                        [invited addObject:currentUserName];
+                        [object setObject:invited forKey:@"Invited"];
+                    
+                        //Edit going list
+                        [going removeObject:currentUserName];
+                        [object setObject:going forKey:@"Going"];
+                        
+                        //Save to database and reload UI
+                        [object saveInBackground];
+                        [self.tableView reloadData];
+                    }
+                    break;
+                }
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+            
+        }];
+        
+        
     }
 }
 
