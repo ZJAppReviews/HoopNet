@@ -11,7 +11,7 @@
 #import "EditMyEventViewController.h"
 #import "Event.h"
 
-@interface MyEventsViewController ()
+@interface MyEventsViewController_ref ()
 
 @end
 
@@ -53,7 +53,6 @@
     [self.eventArray addObject:event1];
     [self.eventArray addObject:event2];
     [self.eventArray addObject:event3];
-    NSLog(@"events just added to EventArray");
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem  = addButton;
@@ -157,10 +156,9 @@ takes you back to the home page
  This method implements the physical features of the cells in the table view
  */
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MyEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomMyEventCell"];
+    MyEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
     if(cell == nil) {
-        NSLog(@"HERE");
-        cell = [[MyEventsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomMyEventCell"];
+        cell = [[MyEventsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventsCell"];
     }
     
     Event* event;
@@ -194,8 +192,12 @@ takes you back to the home page
         
         //Abstracts data needed from args in order to retrieve a cell name and cell display name
         int arrayIndex = self.tableView.indexPathForSelectedRow.row;
-        Event* selectedEvent = [self.eventArray objectAtIndex:arrayIndex];
-        
+        Event* selectedEvent;
+        if (isFiltered) {
+            selectedEvent = [self.filteredEventArray objectAtIndex:arrayIndex];
+        } else {
+            selectedEvent = [self.eventArray objectAtIndex:arrayIndex];
+        }
         destinationController.currentEvent = selectedEvent;
         destinationController.navigationController.title = selectedEvent.name;
         
@@ -230,9 +232,15 @@ takes you back to the home page
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        Event *eventToDelete = [self.eventArray objectAtIndex:indexPath.row];
-        [self.eventArray removeObject:eventToDelete];
+        Event* eventToDelete;
+        if (isFiltered) {
+            eventToDelete = [self.filteredEventArray objectAtIndex:indexPath.row];
+            [self.eventArray removeObject:eventToDelete];
+            [self.filteredEventArray removeObject:eventToDelete];
+        } else {
+            eventToDelete = [self.eventArray objectAtIndex:indexPath.row];
+            [self.eventArray removeObject:eventToDelete];
+        }
         
         /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again*/
         [self.tableView reloadData];

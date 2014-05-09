@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface MyEventsViewController : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MyEventsViewController_ref : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 /*
  nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs

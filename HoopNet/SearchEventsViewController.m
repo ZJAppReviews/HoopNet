@@ -146,7 +146,6 @@
     if (isFiltered) {
         return [self.filteredEventArray count];
     } else {
-        NSLog(@"BLAHBLAHBLAH");
         return [self.eventArray count];
     }
 }
@@ -189,8 +188,12 @@
         
         //Abstracts data needed from args in order to retrieve a cell name and cell display name
         int arrayIndex = self.tableView.indexPathForSelectedRow.row;
-        Event* selectedEvent = [self.eventArray objectAtIndex:arrayIndex];
-        
+        Event* selectedEvent;
+        if (isFiltered) {
+            selectedEvent = [self.filteredEventArray objectAtIndex:arrayIndex];
+        } else {
+            selectedEvent = [self.eventArray objectAtIndex:arrayIndex];
+        }
         destinationController.currentEvent = selectedEvent;
         destinationController.navigationController.title = selectedEvent.name;
         
@@ -220,24 +223,10 @@
     return YES;
 }
 
-
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
