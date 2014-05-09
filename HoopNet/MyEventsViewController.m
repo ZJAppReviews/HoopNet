@@ -52,11 +52,23 @@
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem  = addButton;
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeBUttonPressed:)];
+    self.navigationItem.leftBarButtonItem = homeButton;
 }
 
-
+/*
+ performs the proper segue to lead to the create new Event Controller
+*/
 - (IBAction) addButtonPressed:(id)sender {
     [self performSegueWithIdentifier:@"createNewEventSegue" sender:self];
+}
+
+/*
+takes you back to the home page
+*/
+- (IBAction) homeBUttonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

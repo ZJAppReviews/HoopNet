@@ -77,6 +77,7 @@
         [self.timeLabel setHidden:YES];
         [self.editNameTextField setHidden:NO];
         [self.editLocationTextField setHidden:NO];
+        [self.editWhenPicker setDate:self.currentEvent.date];
         [self.editWhenPicker setHidden:NO];
         
         self.editNameTextField.text = self.nameLabel.text;
@@ -95,13 +96,13 @@
         MyEventsViewController* eventViewController = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
         
         NSString *previousName = self.nameLabel.text;
-        NSRange range = NSMakeRange (1, previousName.length-2);
-        NSString *cleanPreviousName = [previousName substringWithRange:range];
         Event* eventToUpdate;
+        int index = -1;
         for(Event *event in eventViewController.eventArray) {
-            if([event.name isEqual:cleanPreviousName]) {
+            if([event.name isEqual:previousName]) {
                 //Replace oldname with new name in nameArrays
                 eventToUpdate = event;
+                index = [eventViewController.eventArray indexOfObject:eventToUpdate];
                 break;
             }
         }
@@ -115,6 +116,8 @@
         }
         NSDate* newDate = self.editWhenPicker.date;
         eventToUpdate.date = newDate;
+        
+        [eventViewController.eventArray replaceObjectAtIndex:index withObject:eventToUpdate];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
         dateFormatter.dateFormat = @"MM/dd/yy";
