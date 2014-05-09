@@ -23,7 +23,7 @@
 
 //Data base populated data structures
 @property NSMutableSet *userNames;
-@property NSMutableArray *allData;
+//@property NSMutableArray *allData;
 //End of hard coded data structures
 
 /*
