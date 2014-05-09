@@ -38,22 +38,27 @@
     self.tableView.dataSource = self;
     
     self.eventArray = [[NSMutableArray alloc] init];
+    self.filteredEventArray = [[NSMutableArray alloc] init];
+    
+    isFiltered = NO;
     
     //pre-seed the datasource
     NSDate* fakeDate = [[NSDate alloc] init];
     Event *event1 = [[Event alloc] initWithName:@"event1" date:fakeDate location:@"place1" organizer:[PFUser currentUser].username];
     Event *event2 = [[Event alloc] initWithName:@"event2" date:fakeDate location:@"place2" organizer:[PFUser currentUser].username];
+    Event *event3 = [[Event alloc] initWithName:@"event3" date:fakeDate location:@"place3" organizer:@"SomeOtherDude"];
     
     //Event *event1 = [[Event alloc] initWithName:@"event1" date:fakeDate location:@"place1" organizer:@"vince"];
     //Event *event2 = [[Event alloc] initWithName:@"event2" date:fakeDate location:@"place2" organizer:@"vince"];
     [self.eventArray addObject:event1];
     [self.eventArray addObject:event2];
+    [self.eventArray addObject:event3];
     NSLog(@"events just added to EventArray");
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem  = addButton;
     
-    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeBUttonPressed:)];
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeButtonPressed:)];
     self.navigationItem.leftBarButtonItem = homeButton;
 }
 
@@ -67,7 +72,7 @@
 /*
 takes you back to the home page
 */
-- (IBAction) homeBUttonPressed:(id)sender {
+- (IBAction) homeButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -108,24 +113,24 @@ takes you back to the home page
         isFiltered = NO;
     }else {
         isFiltered = YES;
-        NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] initWithCapacity:26];
-        for(int i = 0; i < 26; i++) {
-            [tempDic setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
-        }
-        for(int sectionIndex = 0; sectionIndex < 26; sectionIndex++) {
-            NSMutableArray *currentSection = [self.allSections objectForKey:[NSNumber numberWithInt:sectionIndex]];
-            NSMutableArray *sectionToAddTo = [tempDic objectForKey:[NSNumber numberWithInt:sectionIndex]];
-            for (NSMutableArray *nameArray in currentSection) {
-                NSString *nameStr = [nameArray objectAtIndex:0];
-                NSString *displayNameStr = [nameArray objectAtIndex:1];
-                NSRange nameStringRange = [nameStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
-                NSRange displayNameStringRange = [displayNameStr rangeOfString:searchText options:NSCaseInsensitiveSearch];
-                if(nameStringRange.location != NSNotFound || displayNameStringRange.location != NSNotFound) {
-                    [sectionToAddTo addObject:nameArray];
-                }
+        
+        self.filteredEventArray = [[NSMutableArray alloc] init];
+
+        for(Event *event in self.eventArray) {
+            NSString *nameString = event.name;
+            NSString *locationString = event.location;
+            NSString *organizerString = event.organizer;
+            
+            NSRange nameStringRange = [nameString rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            NSRange locationStringRange = [locationString rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            NSRange organizerStringRange = [organizerString rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if(nameStringRange.location != NSNotFound
+               || locationStringRange.location != NSNotFound
+               || organizerStringRange.location != NSNotFound) {
+                [self.filteredEventArray addObject:event];
             }
         }
-        self.allFilteredSections = [tempDic copy];
     }
     [self.tableView reloadData];
 }
@@ -134,7 +139,6 @@ takes you back to the home page
  Returns the number of existing sections (Those with nil number of rows are excluded in another method)
  */
 - (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView {
-    NSLog(@"Inside numberOfSectionsInTableView");
     return 1;
 }
 
@@ -142,27 +146,30 @@ takes you back to the home page
  Returns the number of rows in the table
  */
 - (NSInteger) tableView: (UITableView *) tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Inside numberOfRowsInSection");
-    NSLog(@"%d", [self.eventArray count]);
-
-    return [self.eventArray count];
+    if (isFiltered) {
+        return [self.filteredEventArray count];
+    } else {
+        return [self.eventArray count];
+    }
 }
 
 /*
  This method implements the physical features of the cells in the table view
  */
 - (UITableViewCell *) tableView: (UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSLog(@"HERE");
-    
-    MyEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventCell"];
+    MyEventsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomMyEventCell"];
     if(cell == nil) {
-        cell = [[MyEventsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomEventCell"];
+        NSLog(@"HERE");
+        cell = [[MyEventsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CustomMyEventCell"];
     }
     
+    Event* event;
     
-    Event* event = [self.eventArray objectAtIndex:indexPath.row];
-    
+    if (isFiltered) {
+        event = [self.filteredEventArray objectAtIndex:indexPath.row];
+    } else {
+        event = [self.eventArray objectAtIndex:indexPath.row];
+    }
     cell.eventName.text = event.name;
     cell.eventLocation.text = event.location;
     cell.eventDate.text = @"";
@@ -191,17 +198,6 @@ takes you back to the home page
         
         destinationController.currentEvent = selectedEvent;
         destinationController.navigationController.title = selectedEvent.name;
-        
-        /*
-        editVC.nameLabelText = cellName;
-        editVC.displayNameLabelText = [NSString stringWithFormat:@"(%@)", cellDisplayName];
-        editVC.phoneLabelText = [cellInfo objectAtIndex:0];
-        editVC.editImageName = [cellInfo objectAtIndex:1];
-        
-        //Default values for editable text fields
-        editVC.phoneTextFieldText = [cellInfo objectAtIndex:0];
-        editVC.nameTextFieldText = cellName;
-        */
         
     }else if ([segue.identifier isEqualToString:@"addNewEventSegue"]) {
         //This is executed when the + icon is pressed

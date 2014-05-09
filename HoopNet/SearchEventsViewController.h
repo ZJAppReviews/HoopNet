@@ -7,7 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface SearchEventsViewController : UIViewController
+@interface SearchEventsViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+
+/*
+ nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs
+ */
+@property NSMutableArray *eventArray;
+@property NSMutableArray *filteredEventArray;
+
+/*
+ List of friends
+ */
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+/*
+ Search bar object to search through The Usuals table view
+ */
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+- (void) refreshAllSections;
 
 @end

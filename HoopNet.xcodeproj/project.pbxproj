@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB12BFB9191CC422000A588A /* ViewEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFB8191CC422000A588A /* ViewEventsViewController.m */; };
+		CB12BFBC191CC718000A588A /* EventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFBB191CC718000A588A /* EventsTableViewCell.m */; };
 		CB1754C9191B542300BA4433 /* MyEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1754C8191B542300BA4433 /* MyEventsTableViewCell.m */; };
 		CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */; };
-		CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */; };
 		CBCFB5DB191B69E800F26960 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DA191B69E800F26960 /* Event.m */; };
 		CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */; };
 		CBF41DD1191C978C0080EAE7 /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */; };
@@ -65,12 +66,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB12BFB7191CC422000A588A /* ViewEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewEventsViewController.h; sourceTree = "<group>"; };
+		CB12BFB8191CC422000A588A /* ViewEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewEventsViewController.m; sourceTree = "<group>"; };
+		CB12BFBA191CC718000A588A /* EventsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsTableViewCell.h; sourceTree = "<group>"; };
+		CB12BFBB191CC718000A588A /* EventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewCell.m; sourceTree = "<group>"; };
 		CB1754C7191B542300BA4433 /* MyEventsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsTableViewCell.h; sourceTree = "<group>"; };
 		CB1754C8191B542300BA4433 /* MyEventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsTableViewCell.m; sourceTree = "<group>"; };
 		CB8BC5CA191B3C4B00EA2BED /* TheUsualsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUsualsCustomCell.h; sourceTree = SOURCE_ROOT; };
 		CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsCustomCell.m; sourceTree = SOURCE_ROOT; };
-		CB9572EA18FA89F60063D188 /* SearchEventsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventsTableViewController.h; sourceTree = "<group>"; };
-		CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsTableViewController.m; sourceTree = "<group>"; };
 		CBCFB5D9191B69E800F26960 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		CBCFB5DA191B69E800F26960 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		CBCFB5DC191B939800F26960 /* EditMyEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMyEventViewController.h; sourceTree = "<group>"; };
@@ -207,6 +210,12 @@
 		D35CED9B18F7D26F00A03E4C /* HoopNet */ = {
 			isa = PBXGroup;
 			children = (
+				CBCFB5D9191B69E800F26960 /* Event.h */,
+				CBCFB5DA191B69E800F26960 /* Event.m */,
+				CB12BFBA191CC718000A588A /* EventsTableViewCell.h */,
+				CB12BFBB191CC718000A588A /* EventsTableViewCell.m */,
+				CB12BFB7191CC422000A588A /* ViewEventsViewController.h */,
+				CB12BFB8191CC422000A588A /* ViewEventsViewController.m */,
 				D35CEDC718F7D28F00A03E4C /* CreateEvents */,
 				D35CEDC618F7D28700A03E4C /* SearchEvents */,
 				D35CEDC518F7D27C00A03E4C /* TheUsuals */,
@@ -255,8 +264,6 @@
 				CB1754C8191B542300BA4433 /* MyEventsTableViewCell.m */,
 				D35CEDDE18F7D41900A03E4C /* MyEventsViewController.h */,
 				D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */,
-				CBCFB5D9191B69E800F26960 /* Event.h */,
-				CBCFB5DA191B69E800F26960 /* Event.m */,
 				CBCFB5DC191B939800F26960 /* EditMyEventViewController.h */,
 				CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */,
 			);
@@ -289,8 +296,6 @@
 				D35CEDCF18F7D3C400A03E4C /* SearchEventsStoryboard.storyboard */,
 				D35CEDD818F7D3FE00A03E4C /* SearchEventsViewController.h */,
 				D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */,
-				CB9572EA18FA89F60063D188 /* SearchEventsTableViewController.h */,
-				CB9572EB18FA89F60063D188 /* SearchEventsTableViewController.m */,
 			);
 			name = SearchEvents;
 			sourceTree = "<group>";
@@ -429,17 +434,18 @@
 				CBF41DD1191C978C0080EAE7 /* MyEventsViewController.m in Sources */,
 				D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */,
 				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
-				CB9572EC18FA89F60063D188 /* SearchEventsTableViewController.m in Sources */,
 				CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */,
 				CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */,
 				CB1754C9191B542300BA4433 /* MyEventsTableViewCell.m in Sources */,
 				D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */,
 				D3ACEC421904D9DE00C8CFEA /* AddContactViewController.m in Sources */,
 				D3E8679A18FA988F00B6F843 /* EditTheUsualsViewController.m in Sources */,
+				CB12BFB9191CC422000A588A /* ViewEventsViewController.m in Sources */,
 				D3990492191A4FC600FC3FD2 /* SignupViewController.m in Sources */,
 				D35CEDA218F7D26F00A03E4C /* main.m in Sources */,
 				D35CEDD718F7D3F100A03E4C /* CreateEventsViewController.m in Sources */,
 				CBCFB5DB191B69E800F26960 /* Event.m in Sources */,
+				CB12BFBC191CC718000A588A /* EventsTableViewCell.m in Sources */,
 				D35CEDDA18F7D3FE00A03E4C /* SearchEventsViewController.m in Sources */,
 				D35CEDDD18F7D40B00A03E4C /* TheUsualsViewController.m in Sources */,
 			);
