@@ -28,6 +28,9 @@
 {
     [super viewDidLoad];
     
+    self.editNameTextField.delegate = self;
+    self.editPhoneTextField.delegate = self;
+    
     /*
      Initializing all objects In the Contact Info View
      */
@@ -43,6 +46,14 @@
      */
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.editPhoneTextField resignFirstResponder];
+    [self.editNameTextField resignFirstResponder];
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
