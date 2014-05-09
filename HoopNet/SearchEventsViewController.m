@@ -9,15 +9,12 @@
 #import "SearchEventsViewController.h"
 #import "EventsTableViewCell.h"
 #import "ViewEventsViewController.h"
-#import "Event.h"
 
 @interface SearchEventsViewController ()
 
 @end
 
-@implementation SearchEventsViewController {
-    BOOL isFiltered;
-}
+@implementation SearchEventsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,7 +47,6 @@
     [self.eventArray addObject:event1];
     [self.eventArray addObject:event2];
     [self.eventArray addObject:event3];
-    NSLog(@"events just added to EventArray");
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem  = addButton;
@@ -166,8 +162,17 @@
     }
     cell.eventName.text = event.name;
     cell.eventLocation.text = event.location;
-    cell.eventDate.text = @"";
-    cell.eventTime.text = @"";
+    cell.eventOrganizer.text = event.organizer;
+    NSDate* dateInfo = event.date;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"MM/dd/yy";
+    NSString *dateString = [dateFormatter stringFromDate: dateInfo];
+    cell.eventDate.text = dateString;
+    
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    timeFormatter.dateFormat = @"HH:mm";
+    NSString *timeString = [timeFormatter stringFromDate: dateInfo];
+    cell.eventTime.text = timeString;
     
     return cell;
 }
