@@ -17,7 +17,6 @@
         self.location = location;
         self.organizer = organizer;
     }
-    
     return self;
 }
 

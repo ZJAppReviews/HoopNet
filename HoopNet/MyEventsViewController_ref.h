@@ -1,5 +1,5 @@
 //
-//  SearchEventsViewController.h
+//  MyEventsViewController.h
 //  HoopNet
 //
 //  Created by David Laroue on 4/11/14.
@@ -9,12 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-#import "Event.h"
-
-@interface SearchEventsViewController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate> {
-    
-    BOOL isFiltered;
-}
+@interface MyEventsViewController_ref : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 /*
  nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs
@@ -31,5 +26,7 @@
  Search bar object to search through The Usuals table view
  */
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+- (void) refreshAllSections;
 
 @end

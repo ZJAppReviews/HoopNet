@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		CB12BFB9191CC422000A588A /* ViewEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFB8191CC422000A588A /* ViewEventsViewController.m */; };
 		CB12BFBC191CC718000A588A /* EventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFBB191CC718000A588A /* EventsTableViewCell.m */; };
-		CB1754C9191B542300BA4433 /* MyEventsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1754C8191B542300BA4433 /* MyEventsTableViewCell.m */; };
+		CB12BFC1191CD981000A588A /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB12BFC0191CD981000A588A /* MyEventsViewController.m */; };
+		CB12BFC2191CDB2D000A588A /* HoopNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */; };
 		CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */; };
 		CBCFB5DB191B69E800F26960 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DA191B69E800F26960 /* Event.m */; };
 		CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */; };
-		CBF41DD1191C978C0080EAE7 /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */; };
 		D30D01551900BB4C00BE8035 /* david.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01541900BB4C00BE8035 /* david.jpg */; };
 		D30D01571900C00600BE8035 /* zack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01561900C00600BE8035 /* zack.jpg */; };
 		D30D01591900C00C00BE8035 /* vince.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D30D01581900C00C00BE8035 /* vince.jpg */; };
@@ -43,7 +43,6 @@
 		D35CEDB918F7D26F00A03E4C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDB718F7D26F00A03E4C /* InfoPlist.strings */; };
 		D35CEDBB18F7D26F00A03E4C /* HoopNetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDBA18F7D26F00A03E4C /* HoopNetTests.m */; };
 		D35CEDC918F7D2B300A03E4C /* HoopNetStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDC818F7D2B300A03E4C /* HoopNetStoryboard.storyboard */; };
-		D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D35CEDCB18F7D2E000A03E4C /* HoopNetViewController.m */; };
 		D35CEDCE18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDCD18F7D3B100A03E4C /* CreateEventsStoryboard.storyboard */; };
 		D35CEDD018F7D3C400A03E4C /* SearchEventsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDCF18F7D3C400A03E4C /* SearchEventsStoryboard.storyboard */; };
 		D35CEDD218F7D3D200A03E4C /* TheUsualsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D35CEDD118F7D3D200A03E4C /* TheUsualsStoryboard.storyboard */; };
@@ -72,8 +71,8 @@
 		CB12BFB8191CC422000A588A /* ViewEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewEventsViewController.m; sourceTree = "<group>"; };
 		CB12BFBA191CC718000A588A /* EventsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsTableViewCell.h; sourceTree = "<group>"; };
 		CB12BFBB191CC718000A588A /* EventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewCell.m; sourceTree = "<group>"; };
-		CB1754C7191B542300BA4433 /* MyEventsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsTableViewCell.h; sourceTree = "<group>"; };
-		CB1754C8191B542300BA4433 /* MyEventsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsTableViewCell.m; sourceTree = "<group>"; };
+		CB12BFBF191CD981000A588A /* MyEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsViewController.h; sourceTree = "<group>"; };
+		CB12BFC0191CD981000A588A /* MyEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsViewController.m; sourceTree = "<group>"; };
 		CB8BC5CA191B3C4B00EA2BED /* TheUsualsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUsualsCustomCell.h; sourceTree = SOURCE_ROOT; };
 		CB8BC5CB191B3C4B00EA2BED /* TheUsualsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsCustomCell.m; sourceTree = SOURCE_ROOT; };
 		CBCFB5D9191B69E800F26960 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -126,8 +125,6 @@
 		D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventsViewController.m; sourceTree = "<group>"; };
 		D35CEDDB18F7D40B00A03E4C /* TheUsualsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheUsualsViewController.h; sourceTree = "<group>"; };
 		D35CEDDC18F7D40B00A03E4C /* TheUsualsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheUsualsViewController.m; sourceTree = "<group>"; };
-		D35CEDDE18F7D41900A03E4C /* MyEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsViewController.h; sourceTree = "<group>"; };
-		D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsViewController.m; sourceTree = "<group>"; };
 		D399048D191A4DFA00FC3FD2 /* LoginSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginSignupViewController.h; sourceTree = "<group>"; };
 		D399048E191A4DFA00FC3FD2 /* LoginSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginSignupViewController.m; sourceTree = "<group>"; };
 		D3990490191A4FC600FC3FD2 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -228,10 +225,6 @@
 				D32E467F191CC102005C74C1 /* Profile */,
 				CBCFB5D9191B69E800F26960 /* Event.h */,
 				CBCFB5DA191B69E800F26960 /* Event.m */,
-				CB12BFBA191CC718000A588A /* EventsTableViewCell.h */,
-				CB12BFBB191CC718000A588A /* EventsTableViewCell.m */,
-				CB12BFB7191CC422000A588A /* ViewEventsViewController.h */,
-				CB12BFB8191CC422000A588A /* ViewEventsViewController.m */,
 				D35CEDC718F7D28F00A03E4C /* CreateEvents */,
 				D35CEDC618F7D28700A03E4C /* SearchEvents */,
 				D35CEDC518F7D27C00A03E4C /* TheUsuals */,
@@ -276,10 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				D35CEDD318F7D3DD00A03E4C /* MyEventsStoryboard.storyboard */,
-				CB1754C7191B542300BA4433 /* MyEventsTableViewCell.h */,
-				CB1754C8191B542300BA4433 /* MyEventsTableViewCell.m */,
-				D35CEDDE18F7D41900A03E4C /* MyEventsViewController.h */,
-				D35CEDDF18F7D41900A03E4C /* MyEventsViewController.m */,
+				CB12BFBF191CD981000A588A /* MyEventsViewController.h */,
+				CB12BFC0191CD981000A588A /* MyEventsViewController.m */,
 				CBCFB5DC191B939800F26960 /* EditMyEventViewController.h */,
 				CBCFB5DD191B939800F26960 /* EditMyEventViewController.m */,
 			);
@@ -312,6 +303,10 @@
 				D35CEDCF18F7D3C400A03E4C /* SearchEventsStoryboard.storyboard */,
 				D35CEDD818F7D3FE00A03E4C /* SearchEventsViewController.h */,
 				D35CEDD918F7D3FE00A03E4C /* SearchEventsViewController.m */,
+				CB12BFB7191CC422000A588A /* ViewEventsViewController.h */,
+				CB12BFB8191CC422000A588A /* ViewEventsViewController.m */,
+				CB12BFBA191CC718000A588A /* EventsTableViewCell.h */,
+				CB12BFBB191CC718000A588A /* EventsTableViewCell.m */,
 			);
 			name = SearchEvents;
 			sourceTree = "<group>";
@@ -448,12 +443,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBF41DD1191C978C0080EAE7 /* MyEventsViewController.m in Sources */,
-				D35CEDCC18F7D2E000A03E4C /* HoopNetViewController.m in Sources */,
+				CB12BFC2191CDB2D000A588A /* HoopNetViewController.m in Sources */,
 				D35CEDA618F7D26F00A03E4C /* HoopNetAppDelegate.m in Sources */,
+				CB12BFC1191CD981000A588A /* MyEventsViewController.m in Sources */,
 				CBCFB5DE191B939800F26960 /* EditMyEventViewController.m in Sources */,
 				CB8BC5CC191B3C4B00EA2BED /* TheUsualsCustomCell.m in Sources */,
-				CB1754C9191B542300BA4433 /* MyEventsTableViewCell.m in Sources */,
 				D399048F191A4DFA00FC3FD2 /* LoginSignupViewController.m in Sources */,
 				D3ACEC421904D9DE00C8CFEA /* AddContactViewController.m in Sources */,
 				D32E4684191CC164005C74C1 /* ProfileViewController.m in Sources */,

@@ -13,7 +13,9 @@
 
 @end
 
-@implementation EditMyEventViewController
+@implementation EditMyEventViewController {
+    IBOutlet UILabel *whereLabel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,20 +33,6 @@
     if (self.currentEvent == nil) {
         
     } else {
-        self.nameLabel.text = self.currentEvent.name;
-        self.locationLabel.text = self.currentEvent.location;
-        self.organizerLabel.text = self.currentEvent.organizer;
-        NSDate* dateInfo = self.currentEvent.date;
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        dateFormatter.dateFormat = @"MM/dd/yy";
-        NSString *dateString = [dateFormatter stringFromDate: dateInfo];
-        self.dateLabel.text = dateString;
-        
-        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-        timeFormatter.dateFormat = @"HH:mm";
-        NSString *timeString = [timeFormatter stringFromDate: dateInfo];
-        self.timeLabel.text = timeString;
-        
         [self.editNameTextField setHidden:YES];
         [self.editLocationTextField setHidden:YES];
         [self.editWhenPicker setHidden:YES];
@@ -54,11 +42,7 @@
         
         //Make it possible to edit the event if you are the organizer
         if ([PFUser currentUser].username == self.currentEvent.organizer) {
-            // place the edit button
             self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-            //UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(setEditing:)];
-            //self.navigationItem.rightBarButtonItem  = editButton;
         }
     }
 }
@@ -72,6 +56,7 @@
     
     if(editing == YES) {
         [self.nameLabel setHidden:YES];
+        [whereLabel setHidden:YES];
         [self.locationLabel setHidden:YES];
         [self.dateLabel setHidden:YES];
         [self.timeLabel setHidden:YES];
@@ -85,6 +70,7 @@
         
     } else {
         [self.nameLabel setHidden:NO];
+        [whereLabel setHidden:NO];
         [self.locationLabel setHidden:NO];
         [self.dateLabel setHidden:NO];
         [self.timeLabel setHidden:NO];
@@ -129,7 +115,6 @@
         NSString *timeString = [timeFormatter stringFromDate: newDate];
         self.timeLabel.text = timeString;
         
-        NSLog(@"about to call");
         [eventViewController.tableView reloadData];
     }
 }
@@ -145,16 +130,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
