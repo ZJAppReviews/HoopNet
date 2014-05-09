@@ -42,6 +42,17 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    self.nameArrays = [[NSMutableArray alloc] init];
+    self.contactInfo = [[NSMutableDictionary alloc] init];
+    
+    
+    ///////////Addin add button
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
+    self.navigationItem.rightBarButtonItem  = addButton;
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeBUttonPressed:)];
+    self.navigationItem.leftBarButtonItem = homeButton;
+    
     
     ///////////////
     //Starting my query to add contact
@@ -71,7 +82,6 @@
             }
             
             
-            self.allData = [[NSMutableArray alloc] init];
             for(NSString *uName in self.userNames) {
                 //PFQuery *query = [PFQuery queryWithClassName:@"User"];
                 PFQuery *query= [PFUser query];
@@ -86,8 +96,15 @@
                             NSString *userName = userObject[@"username"];
                             NSString *phone = userObject[@"phone"];
                             NSString *image = userObject[@"image"];
-                            NSMutableArray *contactInfo = [[NSMutableArray alloc] initWithObjects:displayName,userName,phone,image, nil];
-                            [self.allData addObject:contactInfo];
+                            if(![currentUserName isEqualToString: userName]) {
+                                
+                                NSMutableArray *nameArray = [[NSMutableArray alloc] initWithObjects:displayName,userName, nil];
+                                NSMutableArray *contactInfo = [[NSMutableArray alloc] initWithObjects:phone,image, nil];
+                                [self.nameArrays addObject:nameArray];
+                                [self.contactInfo setValue:contactInfo forKey:userName];
+                                [self refreshAllSections];
+                            }
+                            
                         }
                         
                     } else {
@@ -98,6 +115,7 @@
                 
             }
         } else {
+            
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
@@ -117,24 +135,31 @@
      TODO: Make request to server in order to fill up container
      Will get name, displayname pairs as a request from the server.
      */
+    
+    /*
     self.nameArrays = [[NSMutableArray alloc] initWithObjects:[[NSArray alloc] initWithObjects:@"David Laroue", @"Dlaroue4", nil],[[NSArray alloc] initWithObjects:@"Vince Oe", @"Oe", nil], [[NSArray alloc] initWithObjects:@"Ethan Lewis", @"Ethanry", nil], [[NSArray alloc] initWithObjects:@"Zack Winchester", @"Zackarious", nil], nil];
-
+    */
     
     /*
      TODO: Make request to server in order to fill up container
      Will fill up the dictionary making requests to server.
      */
+    
+    /*
     self.contactInfo = [[NSMutableDictionary alloc] initWithCapacity:[self.nameArrays count]];
     [self.contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"david.jpg",  nil] forKey:@"Dlaroue4"];
     [self.contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"zack.jpg",  nil] forKey:@"Zackarious"];
     [self.contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"ethan.jpg",  nil] forKey:@"Ethanry"];
     [self.contactInfo setObject:[[NSMutableArray alloc] initWithObjects:@"Phone#", @"vince.jpg",  nil] forKey:@"Oe"];
-    
+    */
     
     /*
      Creates a dictionary mapping the section titles (a-z) to arrays containing nameArrays
      This is how we get names ordered under the proper section header
      */
+    
+    /*
+    
     self.allSections = [[NSMutableDictionary alloc] initWithCapacity:26];
     for(int i = 0; i < 26; i++) {
         [self.allSections setObject:[[NSMutableArray alloc]initWithObjects:nil] forKey:[NSNumber numberWithInt:i]];
@@ -149,12 +174,10 @@
         [currentSection addObject:nameArray];
     }
     
-    //Addin add button
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
-    self.navigationItem.rightBarButtonItem  = addButton;
+    */
     
-    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(homeBUttonPressed:)];
-    self.navigationItem.leftBarButtonItem = homeButton;
+    
+
 }
 
 - (IBAction) addButtonPressed:(id)sender {
@@ -394,14 +417,44 @@
         
         NSMutableArray *currentSection = [self.allSections objectForKey:[NSNumber numberWithInt:indexPath.section]];
         NSMutableArray *nameArrayToDelete = [currentSection objectAtIndex:indexPath.row];
+        NSString *userNameToDelete = nameArrayToDelete[1];
         [self.nameArrays removeObject:nameArrayToDelete];
+        
+        
+        PFUser *currentUser = [PFUser currentUser];
+        NSString *currentUserName = currentUser[@"username"];
+        PFQuery *firstRowQuery = [PFQuery queryWithClassName:@"Relationships"];
+        [firstRowQuery whereKey:@"personOne" equalTo:currentUserName];
+        [firstRowQuery whereKey:@"personTwo" equalTo:userNameToDelete];
+        PFQuery *secondRowQuery = [PFQuery queryWithClassName:@"Relationships"];
+        [secondRowQuery whereKey:@"personTwo" equalTo:currentUserName];
+        [secondRowQuery whereKey:@"personOne" equalTo:userNameToDelete];
+        PFQuery *query = [PFQuery orQueryWithSubqueries:@[firstRowQuery,secondRowQuery]];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                
+                // The find succeeded.
+                // Do something with the found objects
+                for (PFObject *object in objects) {
+                    [object delete];
+                    //[self loadObjects];
+                }
+                
+                
+            } else {
+                
+                // Log details of the failure
+            }
+            
+        }];
+        
         [self refreshAllSections];
-        
-        
-        
-        /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again*/
+        /*TODO: Send message to server to delete this contact such that allSections doesn't end up with it again, you're the best past david. */
         [self.tableView reloadData];
         //add code here for when you hit delete
+        
+       
     }
 }
 
