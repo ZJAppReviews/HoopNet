@@ -181,7 +181,14 @@
 }
 
 - (IBAction) addButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"addNewContactSegue" sender:self];
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *currentUserName = currentUser[@"username"];
+    //Object attributes
+    PFObject *newRelationship = [[PFObject alloc] initWithClassName:@"Relationships"];
+    [newRelationship setObject:currentUserName forKey:@"personOne"];
+    [newRelationship setObject:@"Anyone I want" forKey:@"personTwo"];
+    [newRelationship saveInBackground];
+    //[self performSegueWithIdentifier:@"addNewContactSegue" sender:self];
 }
 
 

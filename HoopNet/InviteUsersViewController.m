@@ -68,6 +68,22 @@
     
 }
 
+-(void) addEventQuery {
+    //Starting my query to add my events
+    PFUser *currentUser = [PFUser currentUser];
+    NSString *currentUserName = currentUser[@"username"];
+    //Object attributes
+    PFObject *newEvent = [[PFObject alloc] initWithClassName:@"Events"];
+    [newEvent setObject:self.eventDate forKey:@"When"];
+    [newEvent setObject:self.eventLocation forKey:@"Where"];
+    [newEvent setObject:self.eventName forKey:@"Name"];
+    [newEvent setObject:currentUserName forKey:@"Organizer"];
+    [newEvent saveInBackground];
+    
+    
+    //PFQuery *addEvent = [PFQuery queryWithClassName:@"Events"];
+}
+
 
 
 - (void)didReceiveMemoryWarning
