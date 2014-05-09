@@ -90,9 +90,6 @@
                             [self.allData addObject:contactInfo];
                         }
                         
-                        
-                        
-                        
                     } else {
                         // Log details of the failure
                         NSLog(@"Error: %@ %@", error, [error userInfo]);
