@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <Parse/Parse.h>
 
 @interface TheUsualsViewController : UIViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -15,8 +15,17 @@
  allSections and filtered sections contain information displayed in the table view
  the way we know which dictionary to use depends on the Bool isFiltered
  */
+
+// Hard coded data structures
 @property NSMutableDictionary *allSections;
 @property NSMutableDictionary *allFilteredSections;
+//End of hard coded data structures
+
+//Data base populated data structures
+@property NSMutableSet *userNames;
+@property NSMutableArray *allData;
+//End of hard coded data structures
+
 /*
  nameArrays is a NSMutableArray of NSmutableArrays containing name, and display name pairs
  */
