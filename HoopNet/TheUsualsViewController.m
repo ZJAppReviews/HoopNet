@@ -79,6 +79,7 @@
                 [self.userNames addObject:firstPerson];
                 [self.userNames addObject:secondPerson];
                 //NSLog(@"%@", object.objectId);
+                
             }
             
             

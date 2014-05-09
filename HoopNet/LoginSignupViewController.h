@@ -16,18 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *logInPassWordTF;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *logInButton;
-
 
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
-
 @property (weak, nonatomic) IBOutlet UILabel *loginWarningLabel;
-
-
-
-
 
 -(IBAction)login:(id)sender;
 

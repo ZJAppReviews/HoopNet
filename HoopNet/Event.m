@@ -10,11 +10,12 @@
 
 @implementation Event
 
--initWithName:(NSString*)name date:(NSDate*)date location:(NSString*)location {
+-initWithName:(NSString*)name date:(NSDate*)date location:(NSString*)location organizer:(NSString *)organizer {
     if (self = [super init]) {
         self.name = name;
         self.date = date;
         self.location = location;
+        self.organizer = organizer;
     }
     
     return self;
