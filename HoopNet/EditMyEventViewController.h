@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import <Parse/Parse.h>
 
 #import "Event.h"
 
@@ -16,7 +17,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *whereLabel;
+@property (weak, nonatomic) IBOutlet UILabel *organizerLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 

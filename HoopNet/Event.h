@@ -13,9 +13,10 @@
 @property NSString* name;
 @property NSDate* date;
 @property NSString* location;
+@property NSString* organizer;
 @property NSMutableArray* usersInvited;
 @property NSMutableArray* usersGoing;
 
--initWithName:(NSString*)name date:(NSDate*)date location:(NSString*)location;
+-initWithName:(NSString*)name date:(NSDate*)date location:(NSString*)location organizer:(NSString*)organizer;
 
 @end
